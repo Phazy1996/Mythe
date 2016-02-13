@@ -283,7 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e02fe90d1974243b444fd72f07033b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyWave: []
+  EnemyWave:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!50 &1632009592
 Rigidbody2D:
   serializedVersion: 2
@@ -324,7 +326,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 490436, guid: e4c330a9b16232f439537bf92ff76b4b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.2
+      value: -4.71
       objectReference: {fileID: 0}
     - target: {fileID: 490436, guid: e4c330a9b16232f439537bf92ff76b4b, type: 2}
       propertyPath: m_LocalPosition.y
