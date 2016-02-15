@@ -19,6 +19,9 @@ public class GameTags
    public const string wall = "Wall";
    public const string ground = "Ground";
     public const string enemySpawnPoint = "EnemySpawnPoint";
+
+    //scenes
+    public const string WinScene = "Win";
     //Strings
 
 }
