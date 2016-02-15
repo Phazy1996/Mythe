@@ -47,8 +47,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 
-
-
     private void SwitchValues()
     {
 
@@ -81,8 +79,12 @@ public class PlayerMovement : MonoBehaviour {
             
             if (_checkFlip.facingRight)
                 _jumpReach = 7f;
-            else
+            else if (!_checkFlip.facingRight)
             _jumpReach = -7f;
+            else if (Input.GetAxis("Horizontal") == 0)
+            {
+                _jumpReach = 0f;
+            }
 
              
 
@@ -106,8 +108,9 @@ public class PlayerMovement : MonoBehaviour {
     private void Movement()
 	{
 		float x = Input.GetAxis ("Horizontal");
-		Vector2 movement = new Vector2 (x, 0f);
-      
+        Vector2 movement = new Vector2(x, 0f);
+
+
        transform.Translate(movement * _movementSpeed * Time.deltaTime);
 
        // _playerRigidBody2D.AddForce(movement * _movementSpeed);
@@ -144,6 +147,7 @@ public class PlayerMovement : MonoBehaviour {
             _isGrounded = false;
 
             _amountJumps++;
+
 
              WallJumping();
 		} 
@@ -191,13 +195,23 @@ public class PlayerMovement : MonoBehaviour {
         {
             _isGrounded = true;
             _wallJumpCapable = true;
-           // _jumpReach = 10f;
+
             _amountJumps = 1; // Reset jumps.
             _jumpHeight = 15f;
+
+           /* if (!_spacePressed)
+                StartCoroutine("WallJumpClinge");
+            */
         }
         
 	}
 
-    
+    IEnumerator WallJumpClinge()
+    {
+        _playerRigidBody2D.gravityScale = 0;
+        _jumpHeight = 0f;
+        yield return new WaitForSeconds(1);
+        _playerRigidBody2D.gravityScale = 3;
+    }
 
 }

@@ -16,8 +16,11 @@ public class GameTags
    public const string enemy = "Enemy";
    public const string boss = "Boss";
 
+   public const string maincamera = "MainCamera";
+
    public const string wall = "Wall";
    public const string ground = "Ground";
+   public const string fadewall = "FadeWall";
     //Strings
 
 }
