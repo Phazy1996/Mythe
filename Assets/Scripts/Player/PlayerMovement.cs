@@ -14,13 +14,13 @@ public class PlayerMovement : MonoBehaviour {
     //Int
 
     //Bools
+    [SerializeField] private bool _wallJumpCapable = false; // Turns to true whenever the player touches a wall he could jump.
     [SerializeField] public bool _isGrounded = false; // Is the player grounded, or not?
-	
+    [SerializeField] private bool _isSprinting = false; // Is the player sprinting?
+
     private bool _runOnce = false; // Use this boolean to make something run once.
     private bool _runJumpsOnce = false; // Use this boolean to make something run once.
     private bool _spacePressed; // Is the space button pressed down?
-
-    [SerializeField] private bool _wallJumpCapable = false; // Turns to true whenever the player touches a wall he could jump.
     //Bools
 
     //RigidBody2D
@@ -42,10 +42,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () 
 	{
-        SwitchValues();
         Movement();
-		Jump ();
+        SwitchValues();      
 	}
+
+
+
 
     private void SwitchValues()
     {
@@ -76,9 +78,6 @@ public class PlayerMovement : MonoBehaviour {
                 _runJumpsOnce = true;
             }
            
-
-            
-
             
             if (_checkFlip.facingRight)
                 _jumpReach = 7f;
@@ -95,9 +94,9 @@ public class PlayerMovement : MonoBehaviour {
             {
                 _movementSpeed = 5f;
                 _jumpReach = 0f;
-                _playerRigidBody2D.gravityScale = 3;
                 _jumpHeight = 12f;
                 _amountJumps = 0;
+                _playerRigidBody2D.gravityScale = 3;
                 _runOnce = true;
             }
            
@@ -108,20 +107,43 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		float x = Input.GetAxis ("Horizontal");
 		Vector2 movement = new Vector2 (x, 0f);
+      
+       transform.Translate(movement * _movementSpeed * Time.deltaTime);
+
        // _playerRigidBody2D.AddForce(movement * _movementSpeed);
-       transform.Translate(movement * _movementSpeed * Time.deltaTime);     
+
+       Sprint();
+       Jump();
 	}
+
+    private void Sprint()
+    {
+        if (_checkMode.wolfMode)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                _isSprinting = true;
+                _movementSpeed = 15f;
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                _isSprinting = false;
+                _movementSpeed = 10f;
+            }        
+        }
+    }
 
   
 	private void Jump () 
 	{
         if (!_spacePressed && Input.GetKey(KeyCode.Space) && _amountJumps < 2)
         {
-            _spacePressed = true;
             _playerRigidBody2D.velocity = new Vector2(_jumpReach, _jumpHeight);
-            _isGrounded = false;
-            _amountJumps++;
 
+            _spacePressed = true;
+            _isGrounded = false;
+
+            _amountJumps++;
 
              WallJumping();
 		} 
@@ -132,6 +154,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		
 	}
+
 
     private void WallJumping()
     {
