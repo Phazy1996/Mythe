@@ -1,0 +1,49 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class SpearEnemyTargeter : MonoBehaviour {
+
+    private Rigidbody2D rb;
+    private GameObject _Player;
+    private Rigidbody2D _PlayerRb;
+    private SpriteRenderer _Renderer;
+
+    //the layermask the enemy has to check for. this mask contains the mask of the player and the masks of the objects the player can hide behind
+    [SerializeField] private LayerMask _TargetMask;
+    private int _LayerMask;
+    private int _GroundMask;
+
+	void Start () 
+    {
+        _Renderer = GetComponent<SpriteRenderer>();
+        _Player = GameObject.FindWithTag(GameTags.player);
+        _PlayerRb = _Player.GetComponent<Rigidbody2D>();
+        _LayerMask = LayerMask.GetMask("Player");
+        _GroundMask = LayerMask.GetMask("Ground");
+        rb = GetComponent<Rigidbody2D>();
+	}
+	
+	void Update () 
+    {
+        //Set direction in wich the raycast must be cast
+        float _XDirection = (_PlayerRb.position.x) - (transform.position.x);
+        float _YDirection = (_PlayerRb.position.y) - (transform.position.y);
+        _Renderer.color = Color.yellow;
+        //determine enemy's line of sight. constantly look at player
+        Ray lineOfSight = new Ray(transform.position, new Vector2(_XDirection, _YDirection));
+        //check what is within line of sight, if player is in line of sight take action
+        RaycastHit2D withinSight = Physics2D.Raycast(lineOfSight.origin, lineOfSight.direction, Mathf.Infinity, _TargetMask);
+
+        Debug.DrawRay(lineOfSight.origin, lineOfSight.direction);
+        //Debug.DrawLine(lineOfSight.origin, _PlayerRb.position);
+
+        Debug.Log(withinSight.collider.tag);
+        if(withinSight.collider.tag == GameTags.player)
+        {
+            Debug.Log("Player in sight");
+            _Renderer.color = Color.red;
+
+
+        }
+	}
+}
