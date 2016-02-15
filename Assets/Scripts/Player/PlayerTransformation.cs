@@ -8,33 +8,44 @@ public class PlayerTransformation : MonoBehaviour {
     //SpriteRenderer
 
     //Bools
+    [SerializeField]
+    private bool _isGrounded = false; // Is the player grounded, or not?
     public bool transitionMode = false;
-     public bool wolfMode = false;
+    public bool wolfMode = false;
     //Bools
+
+    //Scripts
+    private PlayerMovement _groundedBoolean; // Checks if the player is grounded or not.
+    //Scripts
 
 
     void Start()
     {
         _playerRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        _groundedBoolean = this.gameObject.GetComponent<PlayerMovement>();
     }
 
 	void Update () 
     {
-        TransformButton();
+       
+            TransformButton();
 	}
 
     private void TransformButton()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (_groundedBoolean._isGrounded)
         {
-            if (!wolfMode)
+            if (Input.GetKeyDown(KeyCode.S))
             {
-                StartCoroutine("WolfTransformation");        
+                if (!wolfMode)
+                {
+                    StartCoroutine("WolfTransformation");
+                }
+                else
+                    StartCoroutine("HumanTransformation");
             }
-            else
-                StartCoroutine("HumanTransformation");
-            
         }
+       
     }
 
     IEnumerator WolfTransformation()
