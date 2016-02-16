@@ -29,8 +29,10 @@ public class SpearEnemyTargeter : MonoBehaviour {
         float _XDirection = (_PlayerRb.position.x) - (transform.position.x);
         float _YDirection = (_PlayerRb.position.y) - (transform.position.y);
         _Renderer.color = Color.yellow;
+
         //determine enemy's line of sight. constantly look at player
         Ray lineOfSight = new Ray(transform.position, new Vector2(_XDirection, _YDirection));
+
         //check what is within line of sight, if player is in line of sight take action
         RaycastHit2D withinSight = Physics2D.Raycast(lineOfSight.origin, lineOfSight.direction, Mathf.Infinity, _TargetMask);
         Debug.DrawRay(lineOfSight.origin, lineOfSight.direction);

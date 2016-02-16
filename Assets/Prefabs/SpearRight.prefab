@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 480448}
   - 212: {fileID: 21241336}
-  - 50: {fileID: 5014392}
   - 114: {fileID: 11403010}
-  - 61: {fileID: 6103896}
+  - 50: {fileID: 5052336}
+  - 61: {fileID: 6183236}
   m_Layer: 11
-  m_Name: Spear
+  m_Name: SpearRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,12 +26,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.262916, y: 8.642925, z: 0.0625}
+  m_LocalPosition: {x: -7.1103106, y: 11.032375, z: 0.0625}
   m_LocalScale: {x: 9.207687, y: 2.7902055, z: 2.7902055}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5014392
+--- !u!50 &5052336
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -47,8 +47,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
---- !u!61 &6103896
+  m_Constraints: 7
+--- !u!61 &6183236
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -59,9 +59,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0014614897, y: -0.00000034179357}
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.19999999}
+  m_Size: {x: 0.17369273, y: 0.16141614}
 --- !u!114 &11403010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc4d59aecc5e561429846ffb3f8e54a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _FacingRight: 0
 --- !u!212 &21241336
 SpriteRenderer:
   m_ObjectHideFlags: 1

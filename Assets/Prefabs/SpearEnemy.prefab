@@ -58,7 +58,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136818}
-  m_LocalRotation: {x: 0, y: 0, z: 0.99999255, w: -0.0038603581}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.71000004, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.18, y: 7.98, z: 0}
+  m_LocalPosition: {x: -4.36, y: 7.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457892}
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!61 &6199344
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28bdf8885a54f2c4eb3a75fdbcf8e78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Spear: {fileID: 126974, guid: 1a433888ca03b92468522846a9bb96d9, type: 2}
+  _Spear: {fileID: 131838, guid: 522a9a23dc7312c4b99fa90474710c32, type: 2}
 --- !u!114 &11460982
 MonoBehaviour:
   m_ObjectHideFlags: 1
