@@ -11,7 +11,8 @@ GameObject:
   - 212: {fileID: 21241336}
   - 50: {fileID: 5014392}
   - 114: {fileID: 11403010}
-  m_Layer: 0
+  - 61: {fileID: 6103896}
+  m_Layer: 11
   m_Name: Spear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6755883, y: 9.730561, z: 0.0625}
-  m_LocalScale: {x: 2.7902064, y: 2.7902055, z: 2.7902055}
+  m_LocalPosition: {x: -6.262916, y: 8.642925, z: 0.0625}
+  m_LocalScale: {x: 9.207687, y: 2.7902055, z: 2.7902055}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,6 +48,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!61 &6103896
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.19999999}
 --- !u!114 &11403010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -98,6 +113,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

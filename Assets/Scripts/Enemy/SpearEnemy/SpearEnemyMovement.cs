@@ -42,17 +42,28 @@ public class SpearEnemyMovement : MonoBehaviour {
 
     void Update()
     {
+        //_JumpForce = new Vector2(Random.Range(-100f, 100f), Random.Range(250f, 350f));
+
         if(_JumpCoolDown < 0)
         {
             _JumpCoolDown = 0;
         }
+    }
 
+    public void Attack()
+    {
+        Jump();
+        SearchForTarget();
+    }
+
+    void SearchForTarget()
+    {
         //determine what side enemy must look at
         if (transform.position.x < _PlayerRb.position.x)
             _FacingRight = true;
         else
             _FacingRight = false;
-        
+
         //cast raycast in facing direction
         if (_FacingRight)
         {
@@ -63,12 +74,7 @@ public class SpearEnemyMovement : MonoBehaviour {
         {
             _LineOfFire = Physics2D.Raycast(transform.position, -transform.right, Mathf.Infinity, _LayerMask);
             Throw();
-        }        
-    }
-
-    public void Attack()
-    {
-        Jump();
+        }  
     }
 
     void Jump()

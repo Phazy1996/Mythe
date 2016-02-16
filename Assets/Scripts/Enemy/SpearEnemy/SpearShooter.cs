@@ -7,6 +7,8 @@ public class SpearShooter : MonoBehaviour {
     [SerializeField]
     private GameObject _Spear;
 
+    private int _ShotCoolDown = 50;
+
     public enum Projectile
     {
         spear
@@ -19,13 +21,22 @@ public class SpearShooter : MonoBehaviour {
         shooter.Add(Projectile.spear, _Spear);
 	}
 
-    public void ThrowSpear()
+    void Update()
     {
-        var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, transform.rotation);
+        Physics.IgnoreLayerCollision(9, 11, true);
+        _ShotCoolDown--;
+        if (_ShotCoolDown < 0)
+            _ShotCoolDown = 0;
+
     }
 
-    public void ThrowSpearL()
+    public void ThrowSpear()
     {
-        var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
+        if(_ShotCoolDown == 0)
+        {
+            var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, transform.rotation);
+            _ShotCoolDown = 100;
+        }
+            
     }
 }

@@ -35,13 +35,10 @@ public class SpearEnemyTargeter : MonoBehaviour {
         RaycastHit2D withinSight = Physics2D.Raycast(lineOfSight.origin, lineOfSight.direction, Mathf.Infinity, _TargetMask);
         Debug.DrawRay(lineOfSight.origin, lineOfSight.direction);
 
-        
-
         Debug.Log(withinSight.collider.tag);
         if(withinSight.collider.tag == GameTags.player)
         {
             _Renderer.color = Color.red;
-
             _SEnemyMovement.Attack();
         }
 	}
