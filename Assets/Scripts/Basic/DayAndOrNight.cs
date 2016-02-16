@@ -4,11 +4,18 @@ using System.Collections;
 public class DayAndOrNight : MonoBehaviour {
 
 
+    //Bools
     public bool _dayLight = false;
     public bool _nightLight = false;
+    //Bools
 
+    //GameObject
     private GameObject _mainCamObject;
+    //GameObject
+
+    //Camera
     private Camera _mainCam;
+    //Camera
 
 	void Start () 
     {

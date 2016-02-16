@@ -54,9 +54,7 @@ public class PlayerTransformation : MonoBehaviour {
 
         transitionMode = true;
 
-        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
-        _playerRenderer.color = Color.yellow;
 
         transitionMode = false;
         wolfMode = true;
@@ -68,9 +66,7 @@ public class PlayerTransformation : MonoBehaviour {
 
         transitionMode = true;
 
-        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
-        _playerRenderer.color = Color.black;
 
         transitionMode = false;
         wolfMode = false;
