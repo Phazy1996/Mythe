@@ -8,53 +8,44 @@ public class PlayerTransformation : MonoBehaviour {
     //SpriteRenderer
 
     //Bools
-    [SerializeField]
-    private bool _isGrounded = false; // Is the player grounded, or not?
     public bool transitionMode = false;
-    public bool wolfMode = false;
+     public bool wolfMode = false;
     //Bools
-
-    //Scripts
-    private PlayerMovement _groundedBoolean; // Checks if the player is grounded or not.
-    //Scripts
 
 
     void Start()
     {
         _playerRenderer = this.gameObject.GetComponent<SpriteRenderer>();
-        _groundedBoolean = this.gameObject.GetComponent<PlayerMovement>();
     }
 
 	void Update () 
     {
-       
-            TransformButton();
+        TransformButton();
 	}
 
     private void TransformButton()
     {
-        if (_groundedBoolean._isGrounded)
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (!wolfMode)
             {
-                if (!wolfMode)
-                {
-                    StartCoroutine("WolfTransformation");
-                }
-                else
-                    StartCoroutine("HumanTransformation");
+                StartCoroutine("WolfTransformation");        
             }
+            else
+                StartCoroutine("HumanTransformation");
+            
         }
-       
     }
 
     IEnumerator WolfTransformation()
     {
-        float _secondsToWait = 0.5f;
+        int _secondsToWait = 1;
 
         transitionMode = true;
 
+        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
+        _playerRenderer.color = Color.yellow;
 
         transitionMode = false;
         wolfMode = true;
@@ -62,11 +53,13 @@ public class PlayerTransformation : MonoBehaviour {
 
     IEnumerator HumanTransformation()
     {
-        float _secondsToWait = 0.5f;
+        int _secondsToWait = 1;
 
         transitionMode = true;
 
+        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
+        _playerRenderer.color = Color.black;
 
         transitionMode = false;
         wolfMode = false;
