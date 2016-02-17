@@ -50,13 +50,11 @@ public class PlayerTransformation : MonoBehaviour {
 
     IEnumerator WolfTransformation()
     {
-        int _secondsToWait = 1;
+        float _secondsToWait = 0.5f;
 
         transitionMode = true;
 
-        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
-        _playerRenderer.color = Color.yellow;
 
         transitionMode = false;
         wolfMode = true;
@@ -64,13 +62,11 @@ public class PlayerTransformation : MonoBehaviour {
 
     IEnumerator HumanTransformation()
     {
-        int _secondsToWait = 1;
+        float _secondsToWait = 0.5f;
 
         transitionMode = true;
 
-        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
-        _playerRenderer.color = Color.black;
 
         transitionMode = false;
         wolfMode = false;
