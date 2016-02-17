@@ -8,7 +8,9 @@ using System.Collections;
 
 public class EnemyRange : MonoBehaviour {
 
-    
+    //spriteRenderer
+    private SpriteRenderer _EnemyRenderer;
+    //spriteRenderer
 
     //scripts
     private EnemyMovement _Movement;
@@ -20,12 +22,13 @@ public class EnemyRange : MonoBehaviour {
 
     //floats
     [SerializeField] private float _EnemyRangeRadius;
+    [SerializeField] private float _AttackRangeRadius;
     //floats
 
 
 	void Start () 
     {
-        
+        _EnemyRenderer = gameObject.GetComponent<SpriteRenderer>();
         //set layermask on wich to look for the player
         _LayerMask = LayerMask.GetMask("Player");
 
@@ -40,13 +43,26 @@ public class EnemyRange : MonoBehaviour {
     void Scout()
     {
         //create overlap circle and return objects within range on the assigned layermask
+        //this is the tracking circle
         Collider2D _EnemyRange = Physics2D.OverlapCircle(transform.position, _EnemyRangeRadius, _LayerMask);
 
         //check if the object within range has the player tag
         if(_EnemyRange.gameObject.tag == GameTags.player)
         {
-            Debug.Log("player in range");
             _Movement.Chase();
+            _EnemyRenderer.color = Color.yellow;
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        //make overlapcircle to determine attack range
+        Collider2D _AttackRange = Physics2D.OverlapCircle(transform.position, _AttackRangeRadius, _LayerMask);
+        if(_AttackRange.gameObject.tag == GameTags.player)
+        {
+            //Debug.Log("ATTACK PLAYER");
+            _EnemyRenderer.color = Color.red;
         }
     }
 

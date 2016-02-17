@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour {
 
     //ints
     private int _LayerMask;
+    private int _PLayerMask;
     //ints
 
     //booleans
@@ -34,14 +35,13 @@ public class EnemyMovement : MonoBehaviour {
     private bool _FacingRight;
     //booleans
 
-
-
 	void Start () 
     {
         rb = GetComponent<Rigidbody2D>();
         _Player = GameObject.FindWithTag(GameTags.player);
         _PlayerRb = _Player.GetComponent<Rigidbody2D>();
         _LayerMask = LayerMask.GetMask("Ground");
+        _PLayerMask = LayerMask.GetMask("Player");
 	}
 	
 	void Update () 
@@ -52,7 +52,11 @@ public class EnemyMovement : MonoBehaviour {
             //Raycast to the right to detect when the enemy needs to jump over an obstacle
             //Jump proximity indicates at what distance the enemy needs to jump
             RaycastHit2D obstacleCheck = Physics2D.Raycast(transform.position, Vector2.right, _JumpProximity, _LayerMask);
-            if (obstacleCheck.collider.tag == GameTags.ground && _CanJump == true)
+
+            //Raycast to check if the player is past a block or not and if not, do not jump. go for player instead
+            RaycastHit2D playerCheck = Physics2D.Raycast(transform.position, Vector2.right, _JumpProximity, _PLayerMask);
+
+            if (obstacleCheck.collider.tag == GameTags.ground && _CanJump == true && playerCheck.collider == null)
             {
                 //jump
                 rb.AddForce(_EnemyJump);
@@ -61,16 +65,18 @@ public class EnemyMovement : MonoBehaviour {
         }
         else
         {
-            //Raycast to the right to detect when the enemy needs to jump over an obstacle
+            //Raycast to the left to detect when the enemy needs to jump over an obstacle
             RaycastHit2D obstacleCheck = Physics2D.Raycast(transform.position, Vector2.left, _JumpProximity, _LayerMask);
-            if (obstacleCheck.collider.tag == GameTags.ground && _CanJump == true)
+            //playercheck raycast to the left
+            RaycastHit2D playerCheck = Physics2D.Raycast(transform.position, Vector2.left, _JumpProximity, _PLayerMask);
+
+            if (obstacleCheck.collider.tag == GameTags.ground && _CanJump == true && playerCheck.collider == null)
             {
                 //jump
                 rb.AddForce(_EnemyJump);
                 _CanJump = false;
             }
         }
-        
 	}
 
     public void Chase()
@@ -88,8 +94,7 @@ public class EnemyMovement : MonoBehaviour {
             //rb.AddForce(-_EnemyMove);
             transform.Translate(-_EnemyMove * Time.deltaTime);
             _FacingRight = false;
-        }
-             
+        }     
     }
     
     void OnCollisionEnter2D(Collision2D coll)
@@ -97,9 +102,7 @@ public class EnemyMovement : MonoBehaviour {
         //reenable jumping when enemy hits the ground
         if(coll.gameObject.tag == GameTags.ground)
         {
-            Debug.Log("reset jump");
             _CanJump = true;
         }
     }
-    
 }
