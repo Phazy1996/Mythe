@@ -35,25 +35,12 @@ public class SpearShooter : MonoBehaviour {
             _ShotCoolDown = 0;
     }
 
-    public void ThrowSpearR()
+    public void ThrowSpear()
     {
         if(_ShotCoolDown == 0)
         {
             var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
-            //_ThrownSpear._FacingRight = true;
             _ShotCoolDown = 100;
         }    
-    }
-
-    public void ThrowSpearL()
-    {
-        if (_ShotCoolDown == 0)
-        {
-            var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
-            //set thrown spear scale to negative on X axis to make it turn the correct direction
-            //_ThrowSpear.transform.localScale = new Vector2(-_ThrowSpear.transform.localScale.x, _ThrowSpear.transform.localScale.y);
-            //_ThrownSpear._FacingRight = false;
-            _ShotCoolDown = 100;
-        }
     }
 }
