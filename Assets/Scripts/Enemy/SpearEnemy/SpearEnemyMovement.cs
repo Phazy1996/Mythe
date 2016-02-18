@@ -89,12 +89,12 @@ public class SpearEnemyMovement : MonoBehaviour {
 
     void Throw()
     {
-        //when player is in line of fire
+        //throw spear
         if (_LineOfFire.collider.tag == GameTags.player)
         {
-            if (_FacingRight) // throw spear to right
+            if (_FacingRight)
                 _SpearThrowR.ThrowSpear();
-            else // throw spear to left
+            else
                 _SpearThrowL.ThrowSpear();
         }
     }
