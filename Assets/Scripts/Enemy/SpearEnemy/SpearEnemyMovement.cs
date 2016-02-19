@@ -103,7 +103,6 @@ public class SpearEnemyMovement : MonoBehaviour {
     {
         if(coll.gameObject.tag == GameTags.ground)
         {
-            Debug.Log("collision");
             _JumpCoolDown--;
         }
     }
