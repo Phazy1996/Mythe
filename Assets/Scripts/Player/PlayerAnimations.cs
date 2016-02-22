@@ -36,8 +36,6 @@ public class PlayerAnimations : MonoBehaviour {
 
         JumpAnimations();
 
-
-
         TransformationAnimations();
         TransitionAnimations();
 	}
