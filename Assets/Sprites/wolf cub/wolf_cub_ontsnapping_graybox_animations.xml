@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="wolf_cub_ontsnapping_graybox_animations.png">
+	<!-- Created with Adobe Flash Professional version 14.0.0.110 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="break-standing up0000" x="4" y="4" width="152" height="107" pivotX="14.9" pivotY="4.9"/>
+	<SubTexture name="break-standing up0001" x="160" y="4" width="152" height="107"/>
+	<SubTexture name="break-standing up0002" x="316" y="4" width="152" height="107"/>
+	<SubTexture name="break-standing up0003" x="472" y="4" width="152" height="107"/>
+	<SubTexture name="break-standing up0004" x="4" y="115" width="152" height="107"/>
+	<SubTexture name="break-standing up0005" x="160" y="115" width="152" height="107"/>
+	<SubTexture name="break-standing up0006" x="316" y="115" width="152" height="107"/>
+	<SubTexture name="break-standing up0007" x="472" y="115" width="152" height="107"/>
+	<SubTexture name="break-standing up0008" x="4" y="226" width="152" height="107"/>
+	<SubTexture name="break-standing up0009" x="160" y="226" width="152" height="107"/>
+	<SubTexture name="break-standing up0010" x="316" y="226" width="152" height="107"/>
+	<SubTexture name="break-standing up0011" x="472" y="226" width="152" height="107"/>
+	<SubTexture name="break-standing up0012" x="4" y="337" width="152" height="107"/>
+	<SubTexture name="break-standing up0013" x="160" y="337" width="152" height="107"/>
+	<SubTexture name="break-standing up0014" x="316" y="337" width="152" height="107"/>
+	<SubTexture name="break-standing up0015" x="472" y="337" width="152" height="107"/>
+	<SubTexture name="break-standing up0016" x="4" y="448" width="152" height="107"/>
+	<SubTexture name="break-standing up0017" x="160" y="448" width="152" height="107"/>
+	<SubTexture name="break-standing up0018" x="316" y="448" width="152" height="107"/>
+	<SubTexture name="break-standing up0019" x="472" y="448" width="152" height="107"/>
+	<SubTexture name="break-standing up0020" x="4" y="559" width="152" height="107"/>
+	<SubTexture name="break-standing up0021" x="160" y="559" width="152" height="107"/>
+	<SubTexture name="break-standing up0022" x="316" y="559" width="152" height="107"/>
+	<SubTexture name="break-standing up0023" x="472" y="559" width="152" height="107"/>
+	<SubTexture name="break-standing up0024" x="4" y="670" width="152" height="107"/>
+	<SubTexture name="break-standing up0025" x="160" y="670" width="152" height="107"/>
+	<SubTexture name="break-standing up0026" x="316" y="670" width="152" height="107"/>
+	<SubTexture name="break-standing up0027" x="472" y="670" width="152" height="107"/>
+	<SubTexture name="break-standing up0028" x="4" y="781" width="152" height="107"/>
+	<SubTexture name="break-standing up0029" x="160" y="781" width="152" height="107"/>
+	<SubTexture name="break-standing up0030" x="316" y="781" width="152" height="107"/>
+	<SubTexture name="break-standing up0031" x="472" y="781" width="152" height="107"/>
+	<SubTexture name="break-standing up0032" x="4" y="892" width="152" height="107"/>
+	<SubTexture name="break-standing up0033" x="160" y="892" width="152" height="107"/>
+	<SubTexture name="break-standing up0034" x="316" y="892" width="152" height="107"/>
+	<SubTexture name="break-standing up0035" x="472" y="892" width="152" height="107"/>
+	<SubTexture name="break-standing up0036" x="4" y="1003" width="152" height="107"/>
+	<SubTexture name="break-standing up0037" x="160" y="1003" width="152" height="107"/>
+	<SubTexture name="break-standing up0038" x="316" y="1003" width="152" height="107"/>
+	<SubTexture name="break-standing up0039" x="472" y="1003" width="152" height="107"/>
+	<SubTexture name="break-standing up0040" x="4" y="1114" width="152" height="107"/>
+	<SubTexture name="break-standing up0041" x="160" y="1114" width="152" height="107"/>
+	<SubTexture name="break-standing up0042" x="316" y="1114" width="152" height="107"/>
+	<SubTexture name="break-standing up0043" x="472" y="1114" width="152" height="107"/>
+	<SubTexture name="break-standing up0044" x="4" y="1225" width="152" height="107"/>
+	<SubTexture name="break-standing up0045" x="160" y="1225" width="152" height="107"/>
+	<SubTexture name="break-standing up0046" x="316" y="1225" width="152" height="107"/>
+	<SubTexture name="break-standing up0047" x="472" y="1225" width="152" height="107"/>
+	<SubTexture name="break-standing up0048" x="4" y="1336" width="152" height="107"/>
+	<SubTexture name="break-standing up0049" x="160" y="1336" width="152" height="107"/>
+	<SubTexture name="break-standing up0050" x="316" y="1336" width="152" height="107"/>
+	<SubTexture name="break-standing up0051" x="472" y="1336" width="152" height="107"/>
+	<SubTexture name="break-standing up0052" x="4" y="1447" width="152" height="107"/>
+	<SubTexture name="break-standing up0053" x="160" y="1447" width="152" height="107"/>
+	<SubTexture name="break-standing up0054" x="316" y="1447" width="152" height="107"/>
+	<SubTexture name="break-standing up0055" x="472" y="1447" width="152" height="107"/>
+	<SubTexture name="break-standing up0056" x="4" y="1558" width="152" height="107"/>
+	<SubTexture name="break-standing up0057" x="160" y="1558" width="152" height="107"/>
+	<SubTexture name="break-standing up0058" x="316" y="1558" width="152" height="107"/>
+</TextureAtlas>

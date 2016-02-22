@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags: []
+=======
+  tags:
+  - Ground
+<<<<<<< HEAD
+  - Wall
+  - FadeObject
+=======
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
+>>>>>>> ec90a866ac84aa2f84eb0700206cb0d147f4d5b7
   layers:
   - Default
   - TransparentFX
@@ -13,7 +23,14 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  - PlayerLayer
+=======
+>>>>>>> ec90a866ac84aa2f84eb0700206cb0d147f4d5b7
   - 
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
   - 
   - 
   - 
@@ -40,4 +57,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1045971125
+    locked: 0
+  - name: Front
+    uniqueID: 1544568089
     locked: 0

@@ -12,9 +12,10 @@ public class PlayerFlip : MonoBehaviour {
     void Update () 
     {
         CheckMovement();
+        FlipSprite();
 	}
 
-    private void CheckMovement()
+    void CheckMovement()
     {
         float x = Input.GetAxis("Horizontal");
 
@@ -28,7 +29,7 @@ public class PlayerFlip : MonoBehaviour {
         }
     }
 
-    private void FlipSprite()
+    void FlipSprite()
     {
         _facingRight = !_facingRight;
         Vector3 theScale = transform.localScale;

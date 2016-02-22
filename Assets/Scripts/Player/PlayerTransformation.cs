@@ -7,45 +7,58 @@ public class PlayerTransformation : MonoBehaviour {
     private SpriteRenderer _playerRenderer;
     //SpriteRenderer
 
+    //Floats
+    private float _horizontalAxis;
+    //Floats
+    
     //Bools
-    [SerializeField]
-    private bool _isGrounded = false; // Is the player grounded, or not?
     public bool transitionMode = false;
-    public bool wolfMode = false;
+     public bool wolfMode = false;
     //Bools
-
-    //Scripts
-    private PlayerMovement _groundedBoolean; // Checks if the player is grounded or not.
-    //Scripts
 
 
     void Start()
     {
         _playerRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
         _groundedBoolean = this.gameObject.GetComponent<PlayerMovement>();
+
+        _thisBoxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
+<<<<<<< HEAD
+
+       
+=======
+>>>>>>> b8b8d2c632a624103c81e712152827d93496828a
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
+>>>>>>> ec90a866ac84aa2f84eb0700206cb0d147f4d5b7
     }
 
 	void Update () 
     {
-       
-            TransformButton();
+        TransformButton();
 	}
 
     private void TransformButton()
     {
-        if (_groundedBoolean._isGrounded)
+<<<<<<< HEAD
+        _horizontalAxis = Input.GetAxis("Horizontal");
+
+        if (_groundedBoolean._isGrounded && _horizontalAxis == 0)
+=======
+        if (Input.GetKeyDown(KeyCode.S))
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (!wolfMode)
             {
-                if (!wolfMode)
-                {
-                    StartCoroutine("WolfTransformation");
-                }
-                else
-                    StartCoroutine("HumanTransformation");
+                StartCoroutine("WolfTransformation");        
             }
+            else
+                StartCoroutine("HumanTransformation");
+            
         }
-       
     }
 
     IEnumerator WolfTransformation()

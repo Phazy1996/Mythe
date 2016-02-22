@@ -4,25 +4,13 @@ using System.Collections.Generic;
 
 public class enemySpawner : MonoBehaviour {
 
-
-    //lists
     // a list of enemies to spawn, can be changed for diffrent scenarios in the editor
     [SerializeField]
-    private List<GameObject> _enemyWave = new List<GameObject>();
-    //lists
 
-    //transforms
-    [SerializeField]
-    private Transform _spawnLocation;
-    //transforms
+    private List<GameObject> EnemyWave = new List<GameObject>();
 
-    //ints
-    private int _enemyWaveLength;
-    //use this to select the distance between the spawned enemies before placing them
-    [SerializeField]
-    private int _SpawnDist;
-    //ints
 
+<<<<<<< HEAD
     //bools
     private bool _enemiesSpawned;
     //bools
@@ -50,4 +38,13 @@ public class enemySpawner : MonoBehaviour {
     
     }
    
+=======
+
+
+    void OnTriggerEnter2D(Collider2D other)  {
+        if (other.tag == GameTags.player){
+            Debug.Log("spawn enemies");
+        }
+    }
+>>>>>>> 0db8e5b2a5a4520074f78afbb4eb7c046ac32151
 }
