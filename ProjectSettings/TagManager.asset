@@ -5,8 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
   - Wall
   - FadeObject
+=======
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,11 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - PlayerLayer
+=======
+  - 
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
   - 
   - 
   - 

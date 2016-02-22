@@ -12,9 +12,12 @@ public class PlayerTransformation : MonoBehaviour {
     //Floats
     
     //Bools
-    [SerializeField]
-    private bool _isGrounded = false; // Is the player grounded, or not?
     public bool transitionMode = false;
+<<<<<<< HEAD
+     public bool wolfMode = false;
+    //Bools
+
+=======
     public bool wolfMode = false;
 
     public bool wolfToHumanTransition = false;
@@ -32,32 +35,50 @@ public class PlayerTransformation : MonoBehaviour {
     private PlayerMovement _groundedBoolean; // Checks if the player is grounded or not.
     //Scripts
 
+>>>>>>> b8b8d2c632a624103c81e712152827d93496828a
 
     void Start()
     {
         _playerRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+<<<<<<< HEAD
+=======
         _groundedBoolean = this.gameObject.GetComponent<PlayerMovement>();
 
         _thisBoxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
+<<<<<<< HEAD
 
        
+=======
+>>>>>>> b8b8d2c632a624103c81e712152827d93496828a
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
     }
 
 	void Update () 
     {
+<<<<<<< HEAD
+        TransformButton();
+=======
             TransformButton();
 
            /// AdjustBoxCollider2D();
+>>>>>>> b8b8d2c632a624103c81e712152827d93496828a
 	}
 
     private void TransformButton()
     {
+<<<<<<< HEAD
         _horizontalAxis = Input.GetAxis("Horizontal");
 
         if (_groundedBoolean._isGrounded && _horizontalAxis == 0)
+=======
+        if (Input.GetKeyDown(KeyCode.S))
+>>>>>>> 9aaef8192efa07192c4619c0b18ba8e2e3ee49f5
         {
-            if (Input.GetKeyDown(KeyCode.S))
+            if (!wolfMode)
             {
+<<<<<<< HEAD
+                StartCoroutine("WolfTransformation");        
+=======
 
                 _runOnce = false;
 
@@ -67,19 +88,24 @@ public class PlayerTransformation : MonoBehaviour {
                 }
                 else
                     StartCoroutine("HumanTransformation");
+>>>>>>> b8b8d2c632a624103c81e712152827d93496828a
             }
+            else
+                StartCoroutine("HumanTransformation");
+            
         }
-       
     }
 
     IEnumerator WolfTransformation()
     {
-        float _secondsToWait = 0.5f;
+        int _secondsToWait = 1;
 
         humanToWolfTransition = true;
         transitionMode = true;
 
+        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
+        _playerRenderer.color = Color.yellow;
 
         transitionMode = false;
         humanToWolfTransition = false;
@@ -96,13 +122,18 @@ public class PlayerTransformation : MonoBehaviour {
 
     IEnumerator HumanTransformation()
     {
-        float _secondsToWait = 0.5f;
+        int _secondsToWait = 1;
 
         wolfToHumanTransition = true;
         transitionMode = true;
 
+<<<<<<< HEAD
+        _playerRenderer.color = Color.red;
+=======
 
+>>>>>>> b8b8d2c632a624103c81e712152827d93496828a
         yield return new WaitForSeconds(_secondsToWait);
+        _playerRenderer.color = Color.black;
 
         transitionMode = false;
         wolfToHumanTransition = false;

@@ -14,17 +14,14 @@ public class PlayerMovement : MonoBehaviour {
     //Int
 
     //Bools
-    [SerializeField] private bool _wallJumpCapable = false; // Turns to true whenever the player touches a wall he could jump.
-    [SerializeField] public bool _isGrounded = false; // Is the player grounded, or not?
-    [SerializeField] private bool _isSprinting = false; // Is the player sprinting?
+    [SerializeField] private bool _isGrounded = false; // Is the player grounded, or not?
+	private bool _spacePressed; // Is the space button pressed down?
 
-    private bool _runOnce = false; // Use this boolean to make something run once.
-    private bool _runJumpsOnce = false; // Use this boolean to make something run once.
-    private bool _spacePressed; // Is the space button pressed down?
+    private bool _runOnce = false;
     //Bools
 
     //RigidBody2D
-    private Rigidbody2D _playerRigidBody2D;
+    private Rigidbody2D _thisRigidBody2D;
     //RigidBody2D
 
     //Scripts
@@ -34,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
     
     void Start()
     {
-        _playerRigidBody2D = this.gameObject.GetComponent<Rigidbody2D>();
+        _thisRigidBody2D = this.gameObject.GetComponent<Rigidbody2D>();
 
         _checkMode = this.gameObject.GetComponent<PlayerTransformation>();
         _checkFlip = this.gameObject.GetComponent<PlayerFlip>();
@@ -42,12 +39,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Update () 
 	{
+        SwitchValues();
         Movement();
-        SwitchValues();      
+		Jump ();
 	}
 
-
-    private void SwitchValues()
+    void SwitchValues()
     {
 
         if (_checkMode.transitionMode) 
@@ -56,8 +53,6 @@ public class PlayerMovement : MonoBehaviour {
             _movementSpeed = 0f;
             _jumpHeight = 0f;
             _jumpReach = 0f;
-            _runJumpsOnce = false;
-            _runOnce = false;
         }
 
             /*
@@ -67,89 +62,51 @@ public class PlayerMovement : MonoBehaviour {
 
         else if (_checkMode.wolfMode) // If you're a wolf, simply change values into...
         {
-            if (!_runJumpsOnce)
+            if (!_runOnce)
             {
                 _amountJumps = 1;
-                _movementSpeed = 10f;
-                _jumpHeight = 7f;
-                _playerRigidBody2D.gravityScale = 2;
-                _runJumpsOnce = true;
+                _runOnce = true;
             }
+            _runOnce = false;
            
-            
-            if (_checkFlip.facingRight)
-                _jumpReach = 7f;
-            else if (!_checkFlip.facingRight)
-            _jumpReach = -7f;
-            else if (Input.GetAxis("Horizontal") == 0)
-            {
-                _jumpReach = 0f;
-            }
 
-             
+            _movementSpeed = 10f;
+            _jumpHeight = 5f;
+
+            /*
+            if (_checkFlip.facingRight)
+                _jumpReach = -10f;
+            else
+            _jumpReach = 10f;
+
+            _thisRigidBody2D.gravityScale = 1;
+             */
 
         }
         else // And if you're a human, then...
         {
-            
-            if (!_runOnce)
-            {
-                _movementSpeed = 5f;
-                _jumpReach = 0f;
-                _jumpHeight = 12f;
-                _amountJumps = 0;
-                _playerRigidBody2D.gravityScale = 3;
-                _runOnce = true;
-            }
-           
+            _movementSpeed = 5f;
+            _jumpReach = 0f;
         }
     }
 
-    private void Movement()
+    void Movement()
 	{
 		float x = Input.GetAxis ("Horizontal");
-        Vector2 movement = new Vector2(x, 0f);
-
-
-       transform.Translate(movement * _movementSpeed * Time.deltaTime);
-
-       // _playerRigidBody2D.AddForce(movement * _movementSpeed);
-
-       Sprint();
-       Jump();
+		Vector2 movement = new Vector2 (x, 0f);
+        transform.Translate(movement * _movementSpeed * Time.deltaTime);     
 	}
 
-    private void Sprint()
-    {
-        if (_checkMode.wolfMode)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                _isSprinting = true;
-                _movementSpeed = 15f;
-            }
-            else if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                _isSprinting = false;
-                _movementSpeed = 10f;
-            }        
-        }
-    }
-
   
-	private void Jump () 
+	void Jump () 
 	{
         if (!_spacePressed && Input.GetKey(KeyCode.Space) && _amountJumps < 2)
         {
-            _playerRigidBody2D.velocity = new Vector2(_jumpReach, _jumpHeight);
-
             _spacePressed = true;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(_jumpReach, _jumpHeight);
             _isGrounded = false;
-
             _amountJumps++;
 
-
-             WallJumping();
 		} 
         
         else if (!Input.GetKey(KeyCode.Space))
@@ -159,59 +116,28 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
-
-    private void WallJumping()
-    {
-        if (_wallJumpCapable && _checkFlip.facingRight)
-            _jumpReach = -7f;
-        else if (_wallJumpCapable && !_checkFlip.facingRight)
-            _jumpReach = 7f;
-        else
-            _jumpReach = 0f;
-    }
-
-
-
 	void OnCollisionEnter2D (Collision2D hit)
 	{
         if (hit.gameObject.tag == GameTags.ground)
         {
-            _wallJumpCapable = false;
             _isGrounded = true;
-            
    
-            if (_checkMode.wolfMode)
-                _amountJumps = 1; // Reset jumps.
-            else
+            if (!_checkMode.wolfMode)
             {
                 _jumpHeight = 12f;
-                _amountJumps = 0;
-                _jumpReach = 0f;
+                _amountJumps = 0; // Reset jumps.
             }
-                
         }
 
         else if (hit.gameObject.tag == GameTags.wall && !_checkMode.wolfMode)
         {
             _isGrounded = true;
-            _wallJumpCapable = true;
-
             _amountJumps = 1; // Reset jumps.
             _jumpHeight = 15f;
-
-           /* if (!_spacePressed)
-                StartCoroutine("WallJumpClinge");
-            */
         }
         
 	}
 
-    IEnumerator WallJumpClinge()
-    {
-        _playerRigidBody2D.gravityScale = 0;
-        _jumpHeight = 0f;
-        yield return new WaitForSeconds(1);
-        _playerRigidBody2D.gravityScale = 3;
-    }
+    
 
 }
