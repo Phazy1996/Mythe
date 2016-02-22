@@ -3,20 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-<<<<<<< HEAD
   tags:
   - Ground
   - Wall
-<<<<<<< HEAD
-  - Enemy
-  - Boss
-  - SpearLeft
-=======
   - FadeObject
-=======
-  tags: []
->>>>>>> 6535d914d5b6592ccf997e3bca16c5e74acbef19
->>>>>>> 47c4f02b42a6593bb32d36b599f97425a1dee1a2
   layers:
   - Default
   - TransparentFX
@@ -26,17 +16,10 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< HEAD
-  - Player
-  - Enemy
-  - Ground
-  - Spear
-=======
+  - PlayerLayer
   - 
   - 
   - 
-  - 
->>>>>>> 47c4f02b42a6593bb32d36b599f97425a1dee1a2
   - 
   - 
   - 
@@ -60,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1045971125
+    locked: 0
+  - name: Front
+    uniqueID: 1544568089
     locked: 0

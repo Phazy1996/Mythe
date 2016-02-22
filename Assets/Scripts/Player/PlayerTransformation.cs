@@ -7,6 +7,10 @@ public class PlayerTransformation : MonoBehaviour {
     private SpriteRenderer _playerRenderer;
     //SpriteRenderer
 
+    //Floats
+    private float _horizontalAxis;
+    //Floats
+    
     //Bools
     [SerializeField]
     private bool _isGrounded = false; // Is the player grounded, or not?
@@ -35,6 +39,8 @@ public class PlayerTransformation : MonoBehaviour {
         _groundedBoolean = this.gameObject.GetComponent<PlayerMovement>();
 
         _thisBoxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
+
+       
     }
 
 	void Update () 
@@ -46,7 +52,9 @@ public class PlayerTransformation : MonoBehaviour {
 
     private void TransformButton()
     {
-        if (_groundedBoolean._isGrounded)
+        _horizontalAxis = Input.GetAxis("Horizontal");
+
+        if (_groundedBoolean._isGrounded && _horizontalAxis == 0)
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
