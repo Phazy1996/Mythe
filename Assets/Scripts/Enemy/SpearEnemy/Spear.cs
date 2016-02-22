@@ -25,6 +25,8 @@ public class Spear : MonoBehaviour {
     private Rigidbody2D _playerRb;
 
     private GameObject _Player;
+    private GameObject _Origin;
+    private GameObject _StartPoint;
 
     void Start()
     {
@@ -43,42 +45,42 @@ public class Spear : MonoBehaviour {
         }
     }
 
+    void OnEnable()
+    {
+        //determine what shooter the spear came from
+        if (gameObject.tag == "SpearLeft")
+            _StartPoint = GameObject.FindWithTag("LShoot");
+        else
+            _StartPoint = GameObject.FindWithTag("RShoot");
+        //set spear position to that of the shooter
+        gameObject.transform.position = _StartPoint.transform.position;
+    }
+
 	void Update () 
     {
         transform.Translate(_MoveVector * Time.deltaTime);
         _RayOrigin = new Vector2((transform.position.x - 0.75f), transform.position.y);
 
         if(_GoingRight)
-        {
             _RayOrigin = new Vector2((transform.position.x - 0.75f), transform.position.y);
-        }
         else
-        {
             _RayOrigin = new Vector2((transform.position.x + 0.75f), transform.position.y);
-        }
 
         if(_InWall)
-        {
             CheckProximity();
-        }
 
         if(_PlayerBelow)
-        {
-            Debug.Log("Platform is not solid");
             _SpearColl.enabled = false;
-        }
         else
-        {
-            Debug.Log("Platform is solid");
             _SpearColl.enabled = true;
-        }
 	}
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        //put object back in object pool upon colliding with player if its not stuck in wall
         if (coll.gameObject.tag == GameTags.player && _InWall == false)
         {
-            Destroy(gameObject);
+            ObjectPool.instance.PoolObject(gameObject);
         } //check if spear is stuck in wall
         else if (coll.gameObject.tag == GameTags.ground)
         {
@@ -100,11 +102,9 @@ public class Spear : MonoBehaviour {
         if(_SpearCollControl.collider.tag == GameTags.player && (_playerRb.position.y) <= transform.position.y)
         {
             _PlayerBelow = true;
-            Debug.Log("Player is underneath");
         }
         else if (_SpearCollControl.collider.tag == GameTags.player && (_playerRb.position.y) >= transform.position.y)
         {
-            Debug.Log("Player is above");
             _PlayerBelow = false;
             _SpearColl.enabled = true;
         }

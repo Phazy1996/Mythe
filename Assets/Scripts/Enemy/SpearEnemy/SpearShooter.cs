@@ -27,16 +27,25 @@ public class SpearShooter : MonoBehaviour {
         _ShotCoolDown--;
         if (_ShotCoolDown < 0)
             _ShotCoolDown = 0;
-
     }
 
-    public void ThrowSpear()
+    public void ThrowSpearR()
     {
         if(_ShotCoolDown == 0)
         {
-            var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, transform.rotation);
+            ObjectPool.instance.GetObjectForType("SpearR", true);
+            //var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
             _ShotCoolDown = 100;
-        }
-            
+        }     
+    }
+
+    public void ThrowSpearL()
+    {
+        if (_ShotCoolDown == 0)
+        {
+            ObjectPool.instance.GetObjectForType("SpearL", true);
+            //var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
+            _ShotCoolDown = 100;
+        }     
     }
 }

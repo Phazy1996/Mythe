@@ -8,6 +8,15 @@ TagManager:
   - Wall
   - Enemy
   - Boss
+  - BossHead
+  - BossLeftHand
+  - BossRightHand
+  - BossLeftFoot
+  - BossRightFoot
+  - RShoot
+  - LShoot
+  - SpearLeft
+  - SpearRight
   layers:
   - Default
   - TransparentFX

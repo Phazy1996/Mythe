@@ -11,7 +11,7 @@ public class SpearEnemyMovement : MonoBehaviour {
     private Rigidbody2D rb;
     private Rigidbody2D _PlayerRb;
 
-    private bool _FacingRight;
+    protected bool _FacingRight;
 
     private int _LayerMask;
     private int _JumpCoolDown;
@@ -93,9 +93,9 @@ public class SpearEnemyMovement : MonoBehaviour {
         if (_LineOfFire.collider.tag == GameTags.player)
         {
             if (_FacingRight)
-                _SpearThrowR.ThrowSpear();
+                _SpearThrowR.ThrowSpearR();
             else
-                _SpearThrowL.ThrowSpear();
+                _SpearThrowL.ThrowSpearL();
         }
     }
 
