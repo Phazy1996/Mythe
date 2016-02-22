@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
@@ -33,7 +34,7 @@ void Start()
 
     public void PlayGame()
     {
-        Application.LoadLevel("FerryScene");
+        SceneManager.LoadScene("FerryScene");
     }
 
     public void HowToPlayButton()
