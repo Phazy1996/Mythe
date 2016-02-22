@@ -4,10 +4,12 @@ using System.Collections;
 public class PlayerFlip : MonoBehaviour {
 
     //Bools
-    public bool facingRight = true;
+    public bool _facingRight = true;
     //Bools
-
-	void Update () 
+    void Start() {
+        _facingRight = this.gameObject.GetComponent<PlayerFlip>();
+    }
+    void Update () 
     {
         CheckMovement();
 	}
@@ -16,11 +18,11 @@ public class PlayerFlip : MonoBehaviour {
     {
         float x = Input.GetAxis("Horizontal");
 
-        if (x > 0 && !facingRight)
+        if (x > 0 && !_facingRight)
         {
             FlipSprite();
         }
-        else if (x < 0 && facingRight)
+        else if (x < 0 && _facingRight)
         {
             FlipSprite();
         }
@@ -28,7 +30,7 @@ public class PlayerFlip : MonoBehaviour {
 
     private void FlipSprite()
     {
-        facingRight = !facingRight;
+        _facingRight = !_facingRight;
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

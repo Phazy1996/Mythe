@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour {
             }
            
             
-            if (_checkFlip.facingRight)
+            if (_checkFlip._facingRight)
                 _jumpReach = 7f;
             else
             _jumpReach = -7f;
@@ -158,9 +158,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private void WallJumping()
     {
-        if (_wallJumpCapable && _checkFlip.facingRight)
+        if (_wallJumpCapable && _checkFlip._facingRight)
             _jumpReach = -7f;
-        else if (_wallJumpCapable && !_checkFlip.facingRight)
+        else if (_wallJumpCapable && !_checkFlip._facingRight)
             _jumpReach = 7f;
         else
             _jumpReach = 0f;
