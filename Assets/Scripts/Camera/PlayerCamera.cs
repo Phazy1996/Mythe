@@ -25,7 +25,7 @@ public class PlayerCamera : MonoBehaviour {
 
     void Start()
     {
-        offset = Vector3.zero;
+        offset = new Vector3(0, 0.3f, 0); ;
         _cameraTargetPos = transform.position;
     }
 
