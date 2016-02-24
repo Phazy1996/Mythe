@@ -46,7 +46,6 @@ public class EnemyMovement : MonoBehaviour {
 	
 	void Update () 
     {
-        
         if(_FacingRight == true)
         {
             //Raycast to the right to detect when the enemy needs to jump over an obstacle

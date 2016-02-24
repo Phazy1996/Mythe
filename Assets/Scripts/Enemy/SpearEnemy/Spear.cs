@@ -97,8 +97,6 @@ public class Spear : MonoBehaviour {
         _ProxPlayerRay = new Ray(transform.position, new Vector2(_XDirection, _YDirection));
         _SpearCollControl = Physics2D.Raycast(_ProxPlayerRay.origin, _ProxPlayerRay.direction, 1, _LayerMask);
 
-        Debug.DrawRay(_ProxPlayerRay.origin, _ProxPlayerRay.direction);
-
         if(_SpearCollControl.collider.tag == GameTags.player && (_playerRb.position.y) <= transform.position.y)
         {
             _PlayerBelow = true;
