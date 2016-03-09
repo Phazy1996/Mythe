@@ -22,6 +22,7 @@ public class Spear : MonoBehaviour {
 
     private Collider2D _SpearColl;
 
+    private Rigidbody2D rb;
     private Rigidbody2D _playerRb;
 
     private GameObject _Player;
@@ -30,6 +31,7 @@ public class Spear : MonoBehaviour {
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         _Player = GameObject.FindWithTag(GameTags.player);
         _playerRb = _Player.GetComponent<Rigidbody2D>();
 
@@ -86,6 +88,8 @@ public class Spear : MonoBehaviour {
         {
             _MoveVector = _NullVector;
             _InWall = true;
+            //turn on all constraints for rigidboy upon hitting wall, prevent from moving/rotating
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
