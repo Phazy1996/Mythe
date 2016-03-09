@@ -58,8 +58,18 @@ public class SpearEnemyMovement : MonoBehaviour {
 
     public void Attack()
     {
-        Jump();
+        PlayerHeightCheck();
         SearchForTarget();
+
+        //only jump if player is above you
+    }
+
+    void PlayerHeightCheck()
+    {
+        if (_PlayerRb.position.y > rb.position.y)
+            Jump();
+        else
+            Debug.Log("Dont Jump");
     }
 
     void SearchForTarget()
