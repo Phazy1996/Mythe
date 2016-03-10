@@ -30,30 +30,14 @@ public class LightAttackState : State {
         else
             _DestPoint.x = _StartPoint.x - 3;
 
-        Debug.Log("Destination: " + _DestPoint + ". StartPoint: " + _StartPoint);
+        //Debug.Log("Destination: " + _DestPoint + ". StartPoint: " + _StartPoint);
+
+        Debug.Log("Reset Start & Dest Point");
+        _BossRenderer.color = Color.green;
     }
 
     public override void Act()
     {
-        /*
-        if (_OnLeftSide == true && _DoneAttacking == false)
-        {
-            WalkForwardR();
-            _StartPoint.x = transform.position.x;
-        }else if(_OnLeftSide == false && _DoneAttacking == false)
-        {
-            WalkForwardL();
-            _StartPoint.x = transform.position.x;
-        }else if (_OnLeftSide == false &&_DoneAttacking == true)
-        {
-            //run walk back right
-            WalkBackR();
-        }else if(_OnLeftSide == true && _DoneAttacking == true)
-        {
-            WalkBackL();
-        }
-         * */
-
         if(_DoneAttacking == false)
         {
             //start walking to center
@@ -64,18 +48,17 @@ public class LightAttackState : State {
         }
     }
 
-
     void WalkToCenter()
     {
         //make boss walk to the destination point
         if(_OnLeftSide == true && transform.position.x < _DestPoint.x)
         {
             transform.Translate(_WalkRight * Time.deltaTime);
-            Debug.Log("walk right to centre");
+            //Debug.Log("walk right to centre");
         }else if(_OnLeftSide == false && transform.position.x > _DestPoint.x)
         {
             transform.Translate(_WalkLeft * Time.deltaTime);
-            Debug.Log("walk left to centre");
+            //Debug.Log("walk left to centre");
         }
 
         if (transform.position.x >= _DestPoint.x && _OnLeftSide == true)
@@ -90,12 +73,46 @@ public class LightAttackState : State {
     {
         Debug.Log("Now Walking Back");
         //make boss move back to the start point
-        if(transform.position.x > _StartPoint.x)
+        if(transform.position.x >= _StartPoint.x)
         {
             transform.Translate(_WalkLeft * Time.deltaTime);
-        }else if(transform.position.x < _StartPoint.x)
+            //check if boss is back where he started
+            if (transform.position.x < _StartPoint.x)
+            {
+                SwitchRandomState();
+                Debug.Log("Boss is back where he started");
+            }
+        }else if(transform.position.x <= _StartPoint.x)
         {
             transform.Translate(_WalkRight * Time.deltaTime);
+            //check if boss is back where he started
+            if (transform.position.x > _StartPoint.x)
+            {
+                SwitchRandomState();
+                Debug.Log("Boss is back where he started");
+            }
+        }
+    }
+
+    void SwitchRandomState()
+    {
+        //reset attack
+        _DoneAttacking = false;
+        
+        //pick random number for state selection
+        int _RandomState;
+        _RandomState = Random.Range(0, 2);
+        switch (_RandomState)
+        {
+            case 0:
+                GetComponent<StateMachine>().SetState(StateID.SwitchSide);
+                break;
+            case 1:
+                GetComponent<StateMachine>().SetState(StateID.Roar);
+                break;
+            case 2:
+                GetComponent<StateMachine>().SetState(StateID.HeavyAttack);
+                break;
         }
     }
 
@@ -117,6 +134,6 @@ public class LightAttackState : State {
 
     public override void Reason()
     {
-
+        
     }
 }

@@ -7,22 +7,30 @@ public class RoarState : State {
     private float _CurrentRoarTime;
     private int _RandomState;
 
+    private SpriteRenderer _BossRenderer;
+
     public override void Enter()
     {
         _CurrentRoarTime = 0f;
-        Debug.Log("Roar State Enter");
+        //Debug.Log("Roar State Enter");
+
+        _BossRenderer = GetComponent<SpriteRenderer>();
     }
 
     public override void Act()
     {
         Debug.Log("Roar");
         _CurrentRoarTime += Time.deltaTime;
+        _BossRenderer.color = Color.blue;
     }
 
     public override void Reason()
     {
         if (_CurrentRoarTime > _RoarDuration)
         {
+            //reset roar time
+            _CurrentRoarTime = 0;
+
             //pick random number
             _RandomState = Random.Range(0, 2);
 

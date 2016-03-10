@@ -32,7 +32,7 @@ public class SwitchSideState : State {
 
     public override void Act()
     {
-        Debug.Log("it is ..." + _OnLeftSide + "... that boss is on left side");
+        //Debug.Log("it is ..." + _OnLeftSide + "... that boss is on left side");
 
         //run left or right depending on stage position
         if (_OnLeftSide)
