@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RoarState : State {
 
@@ -15,11 +16,13 @@ public class RoarState : State {
         //Debug.Log("Roar State Enter");
 
         _BossRenderer = GetComponent<SpriteRenderer>();
+        ObjectPool.instance.GetObjectForType("ShockwaveR", true);
+        ObjectPool.instance.GetObjectForType("ShockwaveL", true);
     }
 
     public override void Act()
     {
-        Debug.Log("Roar");
+        //Debug.Log("Roar");
         _CurrentRoarTime += Time.deltaTime;
         _BossRenderer.color = Color.blue;
     }

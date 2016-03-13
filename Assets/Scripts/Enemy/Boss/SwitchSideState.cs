@@ -70,11 +70,6 @@ public class SwitchSideState : State {
             _OnLeftSide = true;
     }
 
-    void HopTurnBack()
-    {
-
-    }
-
     void CheckSide()
     {
         //check what side boss is on by comparing position to camera position

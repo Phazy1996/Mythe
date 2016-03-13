@@ -5,7 +5,7 @@ public class HeavyAttackState : State {
 
     public override void Enter()
     {
-        Debug.Log("Heavy Attack");
+        //Debug.Log("Heavy Attack");
     }
 
     public override void Act()

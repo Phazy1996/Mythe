@@ -32,20 +32,22 @@ public class LightAttackState : State {
 
         //Debug.Log("Destination: " + _DestPoint + ". StartPoint: " + _StartPoint);
 
-        Debug.Log("Reset Start & Dest Point");
+        //Debug.Log("Reset Start & Dest Point");
         _BossRenderer.color = Color.green;
     }
 
     public override void Act()
     {
-        if(_DoneAttacking == false)
-        {
-            //start walking to center
+        //check if boss is done with light attack
+        if (_DoneAttacking == false)
             WalkToCenter();
-        }else if(_DoneAttacking == true)
-        {
+        else if (_DoneAttacking == true)
             WalkBack();
-        }
+    }
+
+    public override void Reason()
+    {
+
     }
 
     void WalkToCenter()
@@ -71,7 +73,7 @@ public class LightAttackState : State {
 
     void WalkBack()
     {
-        Debug.Log("Now Walking Back");
+        //Debug.Log("Now Walking Back");
         //make boss move back to the start point
         if(transform.position.x >= _StartPoint.x)
         {
@@ -80,7 +82,7 @@ public class LightAttackState : State {
             if (transform.position.x < _StartPoint.x)
             {
                 SwitchRandomState();
-                Debug.Log("Boss is back where he started");
+                //Debug.Log("Boss is back where he started");
             }
         }else if(transform.position.x <= _StartPoint.x)
         {
@@ -89,7 +91,7 @@ public class LightAttackState : State {
             if (transform.position.x > _StartPoint.x)
             {
                 SwitchRandomState();
-                Debug.Log("Boss is back where he started");
+                //Debug.Log("Boss is back where he started");
             }
         }
     }
@@ -130,10 +132,5 @@ public class LightAttackState : State {
         _BossRenderer.color = Color.black;
         _DoneAttacking = true;
         //play attack animation, when thats over, call walkback
-    }
-
-    public override void Reason()
-    {
-        
-    }
+    } 
 }
