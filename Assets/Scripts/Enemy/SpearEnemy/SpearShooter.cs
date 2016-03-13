@@ -2,24 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/*
+ * This script pulls the spears from the object pool when its functions are called
+ * it has a diffrend function for both the left and right side, each of wich spawns a spear with a diffrend tag.
+ * through the tag the spear can work out wich way it needs to go and face.
+ */
+
 public class SpearShooter : MonoBehaviour {
-
-    [SerializeField]
-    private GameObject _Spear;
-
     private int _ShotCoolDown = 50;
-
-    public enum Projectile
-    {
-        spear
-    }
-    public Dictionary<Projectile, GameObject> shooter = new Dictionary<Projectile, GameObject>();
-    private Projectile _Projectiles;
-
-	void Start () 
-    {
-        shooter.Add(Projectile.spear, _Spear);
-	}
 
     void Update()
     {
@@ -34,7 +24,6 @@ public class SpearShooter : MonoBehaviour {
         if(_ShotCoolDown == 0)
         {
             ObjectPool.instance.GetObjectForType("SpearR", true);
-            //var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
             _ShotCoolDown = 100;
         }     
     }
@@ -44,7 +33,6 @@ public class SpearShooter : MonoBehaviour {
         if (_ShotCoolDown == 0)
         {
             ObjectPool.instance.GetObjectForType("SpearL", true);
-            //var _ThrowSpear = (GameObject)Instantiate(shooter[_Projectiles], transform.position, Quaternion.identity);
             _ShotCoolDown = 100;
         }     
     }

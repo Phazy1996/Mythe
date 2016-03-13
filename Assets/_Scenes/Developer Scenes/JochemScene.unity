@@ -285,7 +285,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498330, guid: 619f8d6a1e3e3924394448223ba839f8, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 432350, guid: 619f8d6a1e3e3924394448223ba839f8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 491704, guid: 619f8d6a1e3e3924394448223ba839f8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 491704, guid: 619f8d6a1e3e3924394448223ba839f8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 432350, guid: 619f8d6a1e3e3924394448223ba839f8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.92
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 619f8d6a1e3e3924394448223ba839f8, type: 2}
@@ -1189,6 +1205,14 @@ MonoBehaviour:
     Count: 5
     pool: []
     objectsInPool: 0
+  - Prefab: {fileID: 141632, guid: efaebdf1ce1737448a8cc8b1cdfcf987, type: 2}
+    Count: 1
+    pool: []
+    objectsInPool: 0
+  - Prefab: {fileID: 169966, guid: 495b2703ab239a54c95928080c838e70, type: 2}
+    Count: 1
+    pool: []
+    objectsInPool: 0
 --- !u!114 &1482266815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1287,7 +1311,7 @@ Transform:
   - {fileID: 245761615}
   - {fileID: 1514242366}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1514242365
 GameObject:
   m_ObjectHideFlags: 0

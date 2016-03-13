@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/*
+ * This script includes the states the boss can access during his battle with the player
+ */
+
 public enum StateID
 {
     NullStateID = 0,

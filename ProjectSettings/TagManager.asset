@@ -17,6 +17,10 @@ TagManager:
   - LShoot
   - SpearLeft
   - SpearRight
+  - ShockL
+  - ShockR
+  - BossLShooter
+  - BossRShooter
   layers:
   - Default
   - TransparentFX

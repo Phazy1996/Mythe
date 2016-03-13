@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * This script handles the boss' Light Attack.
+ * it handles the boss' movement during the attack, making him set forward, attack and step backward.
+ * the script switches to the next (random) state after these actions are completed
+ */
+
 public class LightAttackState : State {
 
     private Vector2 _WalkLeft = new Vector2(-3,0);

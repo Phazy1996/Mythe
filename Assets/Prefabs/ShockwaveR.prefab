@@ -12,9 +12,10 @@ GameObject:
   - 114: {fileID: 11473694}
   - 50: {fileID: 5093510}
   - 61: {fileID: 6133520}
+  - 61: {fileID: 6154552}
   m_Layer: 0
   m_Name: ShockwaveR
-  m_TagString: Untagged
+  m_TagString: ShockR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.76, y: 5.54, z: 0}
+  m_LocalPosition: {x: 0.39997405, y: 6.5609684, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,11 +58,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.036515474, y: -0.01761961}
+  serializedVersion: 2
+  m_Size: {x: 1.6469692, y: 1.8987722}
+--- !u!61 &6154552
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.036515415, y: -0.07911682}
+  m_Offset: {x: -0.2621534, y: -1.0884538}
   serializedVersion: 2
-  m_Size: {x: 1.6469692, y: 2.0217671}
+  m_Size: {x: 0.14707765, y: 0.0030927658}
 --- !u!114 &11473694
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,7 +124,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: ShockR
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141632}

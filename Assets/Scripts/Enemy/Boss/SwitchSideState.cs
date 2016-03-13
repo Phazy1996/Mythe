@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * this script makes the boss move towards the other side of the screen.
+ * once it has done this it switches to a random state.
+ */
+
 public class SwitchSideState : State {
 
     private Rigidbody2D rb;
