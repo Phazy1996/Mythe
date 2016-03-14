@@ -16,7 +16,22 @@ public class GameTags
    public const string enemy = "Enemy";
    public const string boss = "Boss";
 
+   public const string son = "Son";
+
+   public const string maincamera = "MainCamera";
+
    public const string wall = "Wall";
+   public const string wallclimb = "WallClimb";
    public const string ground = "Ground";
+   public const string fadewall = "FadeWall";
+    public const string enemySpawnPoint = "enemySpawnPoint";
+    public const string spearL = "SpearLeft";
+    public const string spearR = "SpearRight";
+    public const string shockL = "ShockL";
+    public const string shockR = "ShockR";
+    //scenes
+    public const string WinScene = "WinScene";
+
     //Strings
+
 }

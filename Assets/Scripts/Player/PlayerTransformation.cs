@@ -7,62 +7,128 @@ public class PlayerTransformation : MonoBehaviour {
     private SpriteRenderer _playerRenderer;
     //SpriteRenderer
 
+    //Floats
+    private float _horizontalAxis;
+    //Floats
+    
     //Bools
+    [SerializeField]
+    private bool _isGrounded = false; // Is the player grounded, or not?
     public bool transitionMode = false;
-     public bool wolfMode = false;
+    public bool wolfMode = false;
+
+    public bool wolfToHumanTransition = false;
+    public bool humanToWolfTransition = false;
+
+    private bool _runOnce = false;
     //Bools
+
+
+    //Collider2D
+    private BoxCollider2D _thisBoxCollider2D;
+    //Collider2D
+
+    //Scripts
+    private PlayerMovement _groundedBoolean; // Checks if the player is grounded or not.
+    //Scripts
 
 
     void Start()
     {
         _playerRenderer = this.gameObject.GetComponent<SpriteRenderer>();
+        _groundedBoolean = this.gameObject.GetComponent<PlayerMovement>();
+
+        _thisBoxCollider2D = this.gameObject.GetComponent<BoxCollider2D>();
+
+       
     }
 
 	void Update () 
     {
-        TransformButton();
+            TransformButton();
+
+           /// AdjustBoxCollider2D();
 	}
 
     private void TransformButton()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        _horizontalAxis = Input.GetAxis(ControllerInputs.horizontal);
+
+        if (_groundedBoolean._isGrounded && _horizontalAxis == 0)
         {
-            if (!wolfMode)
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown(ControllerInputs.transformation))
             {
-                StartCoroutine("WolfTransformation");        
+
+                _runOnce = false;
+
+                if (!wolfMode)
+                {
+                    StartCoroutine(WolfTransformation());
+                }
+                else
+                    StartCoroutine(HumanTransformation());
             }
-            else
-                StartCoroutine("HumanTransformation");
-            
         }
+       
     }
 
     IEnumerator WolfTransformation()
     {
-        int _secondsToWait = 1;
+        float _secondsToWait = 0.5f;
 
+        humanToWolfTransition = true;
         transitionMode = true;
 
-        _playerRenderer.color = Color.red;
         yield return new WaitForSeconds(_secondsToWait);
-        _playerRenderer.color = Color.yellow;
 
         transitionMode = false;
+        humanToWolfTransition = false;
         wolfMode = true;
+
+        if (!_runOnce)
+        {
+            AdjustBoxCollider2D();
+            _runOnce = true;
+        }
+
+        
     }
 
     IEnumerator HumanTransformation()
     {
-        int _secondsToWait = 1;
+        float _secondsToWait = 0.5f;
 
+        wolfToHumanTransition = true;
         transitionMode = true;
 
-        _playerRenderer.color = Color.red;
+
         yield return new WaitForSeconds(_secondsToWait);
-        _playerRenderer.color = Color.black;
 
         transitionMode = false;
+        wolfToHumanTransition = false;
         wolfMode = false;
 
+        if (!_runOnce)
+        {
+            AdjustBoxCollider2D();
+            _runOnce = true;
+        }
+
+    }
+
+    private void AdjustBoxCollider2D()
+    {
+        if (wolfMode)
+        {
+            _thisBoxCollider2D.size = new Vector2(2.5f, 1.5f);
+            _thisBoxCollider2D.offset = new Vector2(0, -0.4f);
+        }
+        else
+        {
+            _thisBoxCollider2D.size = new Vector2(1f, 2.4f);
+            _thisBoxCollider2D.offset = new Vector2(0, 0);
+        }
+            
+            
     }
 }

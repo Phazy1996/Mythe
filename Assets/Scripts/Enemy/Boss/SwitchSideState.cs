@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * this script makes the boss move towards the other side of the screen.
+ * once it has done this it switches to a random state.
+ */
+
 public class SwitchSideState : State {
 
     private Rigidbody2D rb;
@@ -32,7 +37,7 @@ public class SwitchSideState : State {
 
     public override void Act()
     {
-        Debug.Log("it is ..." + _OnLeftSide + "... that boss is on left side");
+        //Debug.Log("it is ..." + _OnLeftSide + "... that boss is on left side");
 
         //run left or right depending on stage position
         if (_OnLeftSide)
@@ -68,11 +73,6 @@ public class SwitchSideState : State {
         RaycastHit2D _ObstacleCheck = Physics2D.Raycast(transform.position, Vector2.left, _ObstacleProximity, _ObstacleMask);
         if (_ObstacleCheck.collider.tag == GameTags.ground)
             _OnLeftSide = true;
-    }
-
-    void HopTurnBack()
-    {
-
     }
 
     void CheckSide()

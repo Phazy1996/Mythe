@@ -28,7 +28,10 @@ public class Spear : MonoBehaviour {
     private GameObject _Player;
     private GameObject _Origin;
     private GameObject _StartPoint;
-
+        void OnDrawGizmosSelected() {
+        Gizmos.color = new Color(1, 0, 0, 0.5F);
+        Gizmos.DrawCube(transform.position, new Vector3(1, 1, 1));
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +49,7 @@ public class Spear : MonoBehaviour {
             _GoingRight = false;
         }
     }
+    
 
     void OnEnable()
     {
@@ -75,6 +79,7 @@ public class Spear : MonoBehaviour {
             _SpearColl.enabled = false;
         else
             _SpearColl.enabled = true;
+
 	}
 
     void OnCollisionEnter2D(Collision2D coll)
