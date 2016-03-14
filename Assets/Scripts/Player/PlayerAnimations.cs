@@ -179,7 +179,7 @@ public class PlayerAnimations : MonoBehaviour
         anim.SetBool("WolfIdle", true);
         anim.SetBool("WolfAtack", false);
         AtackingAni = false;
-
+        yield return null;
     }
 
 }

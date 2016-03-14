@@ -12,16 +12,18 @@ public class SpearEnemyMovement : MonoBehaviour {
     private Rigidbody2D _PlayerRb;
 
     protected bool _FacingRight = true;
+    private bool _InAir;
 
     private int _LayerMask;
     private int _ObstacleMask;
     private int _JumpCoolDown;
 
+    private float _XStartPoint;
+
     [SerializeField] private float _JumpProximity;
 
-    //private Vector2 _JumpForce = new Vector2(Random.Range(0f, 10f), Random.Range(200f, 350f));
     private Vector2 _JumpForce = new Vector2(0, 350);
-    private Vector2 _MoveForce = new Vector2(4, 0);
+    private Vector2 _MoveForce = new Vector2(3.5f, 0);
 
     private RaycastHit2D _LineOfFire;
 
@@ -38,8 +40,8 @@ public class SpearEnemyMovement : MonoBehaviour {
         _LayerMask = LayerMask.GetMask("Player");
         _ObstacleMask = LayerMask.GetMask("Ground");
 
-        _LeftShooter = GameObject.Find("LeftShooter");
-        _RightShooter = GameObject.Find("RightShooter");
+        _LeftShooter = GameObject.FindWithTag("LShoot");
+        _RightShooter = GameObject.FindWithTag("RShoot");
 
         _SpearThrowL = _LeftShooter.GetComponent<SpearShooter>();
         _SpearThrowR = _RightShooter.GetComponent<SpearShooter>();
@@ -48,12 +50,13 @@ public class SpearEnemyMovement : MonoBehaviour {
     void Update()
     {
         //_JumpForce = new Vector2(Random.Range(-100f, 100f), Random.Range(250f, 350f));
-
         if(_JumpCoolDown < 0)
         {
             _JumpCoolDown = 0;
         }
         Patrol();
+
+        Debug.Log(_MoveForce);
     }
 
     public void Attack()
@@ -62,6 +65,13 @@ public class SpearEnemyMovement : MonoBehaviour {
         SearchForTarget();
 
         //only jump if player is above you
+    }
+    
+    void SlowJump()
+    {
+        //slow the enemy down when in the air
+        if (_InAir)
+            _MoveForce.x--;
     }
 
     void PlayerHeightCheck()
@@ -104,6 +114,13 @@ public class SpearEnemyMovement : MonoBehaviour {
             //Raycast to check if the player is past a block or not and if not, do not jump. go for player instead
             RaycastHit2D playerCheck = Physics2D.Raycast(transform.position, Vector2.right, _JumpProximity, _LayerMask);
 
+            //check if wall is too close
+            if(obstacleCheck.distance < 0.52f && obstacleCheck.distance > 0 && _FacingRight == true)
+            {
+                Debug.Log("wall too close on right");
+                TurnAround();
+            }
+
             if (obstacleCheck.collider.tag == GameTags.ground && _JumpCoolDown == 0 && playerCheck.collider == null)
             {
                 //jump
@@ -116,6 +133,12 @@ public class SpearEnemyMovement : MonoBehaviour {
             RaycastHit2D obstacleCheck = Physics2D.Raycast(transform.position, Vector2.left, _JumpProximity, _ObstacleMask);
             //playercheck raycast to the left
             RaycastHit2D playerCheck = Physics2D.Raycast(transform.position, Vector2.left, _JumpProximity, _LayerMask);
+
+            //check if wall is too close
+            if (obstacleCheck.distance < 0.52f && obstacleCheck.distance > 0 && _FacingRight == false)
+            {
+                TurnAround();
+            }
 
             if (obstacleCheck.collider.tag == GameTags.ground && _JumpCoolDown == 0 && playerCheck.collider == null)
             {
@@ -132,6 +155,7 @@ public class SpearEnemyMovement : MonoBehaviour {
             //jump
             rb.AddForce(_JumpForce);
             _JumpCoolDown = 25;
+            _InAir = true;
         }        
     }
 
@@ -163,6 +187,16 @@ public class SpearEnemyMovement : MonoBehaviour {
         if(coll.gameObject.tag == GameTags.ground)
         {
             _JumpCoolDown--;
+            _InAir = false;
         }
+    }
+
+    void TurnAround()
+    {
+        //turn enemy around
+        if (_FacingRight == true)
+            _FacingRight = false;
+        else
+            _FacingRight = true;
     }
 }
