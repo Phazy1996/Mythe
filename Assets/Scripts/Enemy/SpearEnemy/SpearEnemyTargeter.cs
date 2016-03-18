@@ -5,18 +5,20 @@ public class SpearEnemyTargeter : MonoBehaviour {
 
     private GameObject _Player;
     private Rigidbody2D _PlayerRb;
-    private SpriteRenderer _Renderer;
     private SpearEnemyMovement _SEnemyMovement;
+
+    private MovementSpearEnemy _MSpearEnemy;
 
     //the layermask the enemy has to check for. this mask contains the mask of the player and the masks of the objects the player can hide behind
     [SerializeField] private LayerMask _TargetMask;
 
 	void Start () 
     {
-        _Renderer = GetComponent<SpriteRenderer>();
         _Player = GameObject.FindWithTag(GameTags.player);
         _PlayerRb = _Player.GetComponent<Rigidbody2D>();
         _SEnemyMovement = GetComponent<SpearEnemyMovement>();
+
+        _MSpearEnemy = GetComponent<MovementSpearEnemy>();
 	}
 	
 	void Update () 
@@ -24,7 +26,9 @@ public class SpearEnemyTargeter : MonoBehaviour {
         //Set direction in wich the raycast must be cast
         float _XDirection = (_PlayerRb.position.x) - (transform.position.x);
         float _YDirection = (_PlayerRb.position.y) - (transform.position.y);
-        _Renderer.color = Color.yellow;
+
+        //_Renderer.color = Color.yellow;
+
         //determine enemy's line of sight. constantly look at player
         Ray lineOfSight = new Ray(transform.position, new Vector2(_XDirection, _YDirection));
         //check what is within line of sight, if player is in line of sight take action
@@ -32,8 +36,9 @@ public class SpearEnemyTargeter : MonoBehaviour {
 
         if(withinSight.collider.tag == GameTags.player)
         {
-            _Renderer.color = Color.red;
-            _SEnemyMovement.Attack();
+            //player is within sight, jump if needed to take aim
+            //_SEnemyMovement.Attack();
+            _MSpearEnemy.Attack();
         }
 	}
 }

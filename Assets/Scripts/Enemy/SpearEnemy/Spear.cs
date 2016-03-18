@@ -79,7 +79,6 @@ public class Spear : MonoBehaviour {
             _SpearColl.enabled = false;
         else
             _SpearColl.enabled = true;
-
 	}
 
     void OnCollisionEnter2D(Collision2D coll)
