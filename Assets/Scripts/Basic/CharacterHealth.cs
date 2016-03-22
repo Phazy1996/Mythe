@@ -4,9 +4,7 @@ using System.Collections;
 public class CharacterHealth : MonoBehaviour {
 
     public delegate void TakeDamage();
-
-
-    private int _Health;
+    public TakeDamage _TakeDamage;
 
 	void Start () 
     {
@@ -17,9 +15,4 @@ public class CharacterHealth : MonoBehaviour {
     {
 	
 	}
-
-    void DecreaseHealth(int _Damage)
-    {
-
-    }
 }

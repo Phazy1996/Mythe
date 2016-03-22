@@ -30,15 +30,19 @@ public class SpearEnemyTargeter : MonoBehaviour {
         //_Renderer.color = Color.yellow;
 
         //determine enemy's line of sight. constantly look at player
-        Ray lineOfSight = new Ray(transform.position, new Vector2(_XDirection, _YDirection));
+        Ray lineOfSight = new Ray(new Vector3(transform.position.x,transform.position.y + 1f,transform.position.z), new Vector2(_XDirection, _YDirection));
         //check what is within line of sight, if player is in line of sight take action
         RaycastHit2D withinSight = Physics2D.Raycast(lineOfSight.origin, lineOfSight.direction, Mathf.Infinity, _TargetMask);
-
         if(withinSight.collider.tag == GameTags.player)
         {
             //player is within sight, jump if needed to take aim
             //_SEnemyMovement.Attack();
             _MSpearEnemy.Attack();
+        }
+        else
+        {   
+            _MSpearEnemy.PlayerDetected(false);
+            _MSpearEnemy.ProximityCheck();
         }
 	}
 }

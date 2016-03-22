@@ -1,23 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * This script is responsible for making the Hunter Enemy move around. it moves the enemy untill it bumps into an obstacle and then turns it around
+ * when it gets a cue from the targeter script it will change its behaviour in the sense that it will try all it can to chase the player, instead of turning around it will jump over obstacles.
+ * this script also gives a cue to the shooter script so that the enemy throws a spear at the appropriate time
+ */
+
+
 public class MovementSpearEnemy : MonoBehaviour {
 
     private Rigidbody2D _rb;
     private SpearShooter _SpearThrow;
     private RaycastHit2D _LineOfFire;
+    private RaycastHit2D _JumpCast;
+    private RaycastHit2D _PlayerReticle;
 
     private GameObject _Player;
 
     private bool _FacingRight = true;
-    private bool _CanJump;
+    private bool _CanJump = true;
+    private bool _PlayerSighted;
 
-    private int _LayerMask;
+    private int _PlayerMask;
     private int _ObstacleMask;
     private int _JumpCooldown;
 
     private Vector2 _JumpForce = new Vector2(0, 350);
-    private Vector2 _MoveForce = new Vector2(3.5f, 0);
+    private Vector2 _MoveForce = new Vector2(2.5f, 0);
+    private Vector2 _OriginScale;
 
     private float _JumpProximity = 3f;
 
@@ -27,22 +38,25 @@ public class MovementSpearEnemy : MonoBehaviour {
         _Player = GameObject.FindWithTag(GameTags.player);
         _SpearThrow = GameObject.FindWithTag("RShoot").GetComponent<SpearShooter>();
 
-        _LayerMask = LayerMask.GetMask("Player");
+        _PlayerMask = LayerMask.GetMask("Player");
         _ObstacleMask = LayerMask.GetMask("Ground");
+
+        _OriginScale = transform.localScale;
 	}
 	
 	void Update () 
     {
         Patrol();
-        FlipSprite();
+        //ProximityCheck();
+        ResetJump();
 	}
 
     void Jump()
     {
-        if(_CanJump == true)
+        if(_JumpCooldown == 0)
         {
             _rb.AddForce(_JumpForce);
-            _CanJump = false;
+            _JumpCooldown = 25;
         }
     }
 
@@ -54,27 +68,56 @@ public class MovementSpearEnemy : MonoBehaviour {
         else if (_FacingRight == false) // walk left
             transform.Translate(-_MoveForce * Time.deltaTime);
     }
+    
+    public void PlayerDetected(bool _PlayerIsDetected)
+    {
+        if(_PlayerIsDetected == true)
+        {
+            //hunter should also check for obstacles in front and jump over
+            _PlayerSighted = true;
+        }
+        else
+        {
+            //hunter should do nothing special
+            _PlayerSighted = false;
+        }
+    }
 
-    void ProximityCheck()
+    public void ProximityCheck()
     {
         //check in front of enemy for obstacles to jump over or check if an obstacle is too close
         //in wich case enemy should turn around
 
         //cast a raycast in front of enemy.
         if(_FacingRight)
-            _LineOfFire = Physics2D.Raycast(transform.position, Vector2.right, _JumpProximity, _ObstacleMask);
+            _LineOfFire = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z), Vector2.right, _JumpProximity, _ObstacleMask);
         else
-            _LineOfFire = Physics2D.Raycast(transform.position, Vector2.left, _JumpProximity, _ObstacleMask);
+            _LineOfFire = Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z), Vector2.left, _JumpProximity, _ObstacleMask);
 
-        //check if obstacle is too close on the right
-        if(_FacingRight == true && _LineOfFire.distance < 0.76f && _LineOfFire.distance > 0)
+        if (_PlayerSighted == true)
         {
-            TurnAround();
-            Debug.Log(_LineOfFire.distance);
-        }else if(_FacingRight == false && _LineOfFire.distance < 0.76f && _LineOfFire.distance > 0) //check if obstacle is too close on the left
+            //check proximity and jump instead of turn around
+            //check if obstacle is too close on the right
+            if (_FacingRight == true && _LineOfFire.collider.tag == GameTags.ground)
+            {
+                Jump();
+            }
+            else if (_FacingRight == false && _LineOfFire.collider.tag == GameTags.ground) //check if obstacle is too close on the left
+            {
+                Jump();
+            }
+        }else
         {
-            TurnAround();
-            Debug.Log(_LineOfFire.distance);
+            //check proximity normaly
+            //check if obstacle is too close on the right
+            if (_FacingRight == true && _LineOfFire.distance < 0.76f && _LineOfFire.distance > 0)
+            {
+                TurnAround();
+            }
+            else if (_FacingRight == false && _LineOfFire.distance < 0.76f && _LineOfFire.distance > 0) //check if obstacle is too close on the left
+            {
+                TurnAround();
+            }
         }
     }
 
@@ -85,6 +128,23 @@ public class MovementSpearEnemy : MonoBehaviour {
         //walk in direction of player
 
         PlayerPosCheck();
+        PlayerDetected(true);
+    }
+
+    void PlayerTargeter()
+    {
+        if (_FacingRight)
+            _PlayerReticle = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity, _PlayerMask);
+        else
+            _PlayerReticle = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity, _PlayerMask);
+
+        if(_PlayerReticle.collider.tag == GameTags.player)
+        {
+            if (_FacingRight == true)
+                _SpearThrow.ThrowSpearR();
+            else
+                _SpearThrow.ThrowSpearL();
+        }
     }
 
     void PlayerPosCheck()
@@ -95,42 +155,40 @@ public class MovementSpearEnemy : MonoBehaviour {
             //player is on the right
             if (_FacingRight == false)
             {
-                //looking wrong way
+                //looking wrong way, fix it
                 TurnAround();
-                if (_Player.transform.position.y > transform.position.y)
-                {
-                    //player is above enemy
-                    Jump();
-                }
-                else
-                {
-                    //player is below enemy
-                }
+            }else
+            {
+                //enemy looks in player direction, check if player is above enemy
+                //if player is below enemy, enemy will simply walk towards player
+                CheckAbove();
+                PlayerTargeter();
             }
-            else
-                Debug.Log("Player is on right side, looking correct way");
-                //TurnAround();
-        }
-        else
-        {
+        }else{
             //player is on the left
             if (_FacingRight == true)
             {
-                //looking wrong way
+                //looking wrong way, fix it
                 TurnAround();
-                if (_Player.transform.position.y > transform.position.y)
-                {
-                    //player is above enemy
-                    Jump();
-                }
-                else
-                {
-                    //player is below enemy
-                }
+            }else
+            {
+                //enemy looks in player direction, check if player is above enemy
+                //if player is below enemy, enemy will simply walk towards player
+                CheckAbove();
+                PlayerTargeter();
             }
-            else
-                Debug.Log("Player is on left side, looking correct way");
-                //TurnAround();    
+        }
+    }
+
+    void CheckAbove()
+    {
+        if (_Player.transform.position.y > transform.position.y)
+        {
+            //player is above enemy, enemy should jump
+            Jump();
+        }
+        else{
+            ProximityCheck();
         }
     }
 
@@ -141,20 +199,29 @@ public class MovementSpearEnemy : MonoBehaviour {
             _FacingRight = false;
         else if (_FacingRight == false)
             _FacingRight = true;
+        FlipSprite();
+    }
+
+    void ResetJump()
+    {
+        _JumpCast = Physics2D.Raycast(transform.position, -transform.up, Mathf.Infinity, _ObstacleMask);
+        if(_JumpCast.distance > 0 && _JumpCast.distance < 1.46)
+        {
+            //_CanJump = true;
+            _JumpCooldown--;
+            if(_JumpCooldown < 0)
+            {
+                _JumpCooldown = 0;
+            }
+        }
     }
 
     void FlipSprite()
     {
         //flip the sprite horizontally when walking left
         if (_FacingRight == true)
-        {
-            Debug.Log(_FacingRight + "dont flip sprite");
-            transform.localScale = new Vector2(transform.localScale.x, transform.localScale.y);
-        }    
+            transform.localScale = _OriginScale;  
         else if (_FacingRight == false)
-        {
-            Debug.Log(_FacingRight + "Flip sprite");
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-        }   
     }
 }

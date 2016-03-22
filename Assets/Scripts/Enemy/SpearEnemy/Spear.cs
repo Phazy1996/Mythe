@@ -54,10 +54,7 @@ public class Spear : MonoBehaviour {
     void OnEnable()
     {
         //determine what shooter the spear came from
-        if (gameObject.tag == "SpearLeft")
-            _StartPoint = GameObject.FindWithTag("LShoot");
-        else
-            _StartPoint = GameObject.FindWithTag("RShoot");
+        _StartPoint = GameObject.FindWithTag("RShoot");
         //set spear position to that of the shooter
         gameObject.transform.position = _StartPoint.transform.position;
     }
