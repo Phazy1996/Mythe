@@ -12,9 +12,13 @@ public class MovementSpearEnemy : MonoBehaviour {
 
     private Rigidbody2D _rb;
     private SpearShooter _SpearThrow;
+
     private RaycastHit2D _LineOfFire;
     private RaycastHit2D _JumpCast;
     private RaycastHit2D _PlayerReticle;
+
+    private IHealth _HunterHealth;
+    private HunterHealth _HHealth;
 
     private GameObject _Player;
 
@@ -27,7 +31,7 @@ public class MovementSpearEnemy : MonoBehaviour {
     private int _JumpCooldown;
 
     private Vector2 _JumpForce = new Vector2(0, 350);
-    private Vector2 _MoveForce = new Vector2(2.5f, 0);
+    private Vector2 _MoveForce = new Vector2(2.2f, 0);
     private Vector2 _OriginScale;
 
     private float _JumpProximity = 3f;
@@ -42,19 +46,52 @@ public class MovementSpearEnemy : MonoBehaviour {
         _ObstacleMask = LayerMask.GetMask("Ground");
 
         _OriginScale = transform.localScale;
+
+        _HunterHealth = GetComponent<IHealth>();
+
+        _HHealth = GetComponent<HunterHealth>();
+        //sign up for deplete health delegate
+        _HHealth.DepleteHealth += Die;
 	}
+
+    void OnEnable()
+    {
+        //sign up for deplete health delegate after respawning
+        _HHealth.DepleteHealth += Die;
+    }
+
+    void Die()
+    {
+        Debug.Log("HOMER IS DEAD " + this.name);
+        _HHealth.DepleteHealth -= Die;
+        //put object back in object pool
+
+        //ObjectPool.instance.PoolObject(gameObject);
+    }
 	
 	void Update () 
     {
         Patrol();
         //ProximityCheck();
         ResetJump();
+        IgnoreCollision();
 	}
+
+    void OnMouseDown()
+    {
+        _HunterHealth.DecreaseHealth();
+    }
+
+    void IgnoreCollision()
+    {
+        Physics2D.IgnoreLayerCollision(9, 11, true);
+    }
 
     void Jump()
     {
         if(_JumpCooldown == 0)
         {
+            Debug.Log("JUMP");
             _rb.AddForce(_JumpForce);
             _JumpCooldown = 25;
         }
@@ -204,11 +241,12 @@ public class MovementSpearEnemy : MonoBehaviour {
 
     void ResetJump()
     {
-        _JumpCast = Physics2D.Raycast(transform.position, -transform.up, Mathf.Infinity, _ObstacleMask);
-        if(_JumpCast.distance > 0 && _JumpCast.distance < 1.46)
+        _JumpCast = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 2), -transform.up, Mathf.Infinity, _ObstacleMask);
+        if(_JumpCast.distance >= 0 && _JumpCast.distance < 1.46)
         {
             //_CanJump = true;
             _JumpCooldown--;
+            //Debug.Log(_JumpCooldown);
             if(_JumpCooldown < 0)
             {
                 _JumpCooldown = 0;

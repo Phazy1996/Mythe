@@ -42,10 +42,14 @@ public class Spear : MonoBehaviour {
 
         _LayerMask = LayerMask.GetMask("Player");
 
-        if(gameObject.tag == "SpearLeft")
+        if(gameObject.tag == "SpearRight")
         {
-            _MoveVector = new Vector2(-10,0);
+            _MoveVector = new Vector2(10,0);
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            _GoingRight = true;
+        }else if(gameObject.tag == "SpearLeft")
+        {
+            _MoveVector = new Vector2(-10, 0);
             _GoingRight = false;
         }
     }

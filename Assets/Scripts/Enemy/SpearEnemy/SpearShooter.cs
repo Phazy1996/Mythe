@@ -13,7 +13,7 @@ public class SpearShooter : MonoBehaviour {
 
     void Update()
     {
-        Physics.IgnoreLayerCollision(9, 11, true);
+        //Physics.IgnoreLayerCollision(9, 11, true);
         _ShotCoolDown--;
         if (_ShotCoolDown < 0)
             _ShotCoolDown = 0;
