@@ -34,11 +34,5 @@ public class HunterHealth : MonoBehaviour, IHealth {
 
     public void IncreaseHealth()
     {
-
-    }
-
-    public void SetHealth()
-    {
-
     }
 }

@@ -5,5 +5,4 @@ public interface IHealth {
 
     void DecreaseHealth();
     void IncreaseHealth();
-    void SetHealth();
 }
