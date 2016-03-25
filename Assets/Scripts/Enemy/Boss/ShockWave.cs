@@ -55,6 +55,7 @@ public class ShockWave : MonoBehaviour {
         if(_Rektimer > 250)
         {
             //Remove shockwave
+            ObjectPool.instance.PoolObject(gameObject);
         }
         else
         {

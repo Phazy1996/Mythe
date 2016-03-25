@@ -42,10 +42,14 @@ public class Spear : MonoBehaviour {
 
         _LayerMask = LayerMask.GetMask("Player");
 
-        if(gameObject.tag == "SpearLeft")
+        if(gameObject.tag == "SpearRight")
         {
-            _MoveVector = new Vector2(-10,0);
+            _MoveVector = new Vector2(10,0);
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            _GoingRight = true;
+        }else if(gameObject.tag == "SpearLeft")
+        {
+            _MoveVector = new Vector2(-10, 0);
             _GoingRight = false;
         }
     }
@@ -54,10 +58,7 @@ public class Spear : MonoBehaviour {
     void OnEnable()
     {
         //determine what shooter the spear came from
-        if (gameObject.tag == "SpearLeft")
-            _StartPoint = GameObject.FindWithTag("LShoot");
-        else
-            _StartPoint = GameObject.FindWithTag("RShoot");
+        _StartPoint = GameObject.FindWithTag("RShoot");
         //set spear position to that of the shooter
         gameObject.transform.position = _StartPoint.transform.position;
     }
@@ -79,7 +80,6 @@ public class Spear : MonoBehaviour {
             _SpearColl.enabled = false;
         else
             _SpearColl.enabled = true;
-
 	}
 
     void OnCollisionEnter2D(Collision2D coll)
