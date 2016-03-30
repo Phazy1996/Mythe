@@ -1,0 +1,971 @@
+fileFormatVersion: 2
+guid: 40d6ae0f4dadd3342b8c8c3f473e73b0
+timeCreated: 1458555713
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PLayerScale_Player_walk_0
+    21300002: PLayerScale_Player_walk_1
+    21300004: PLayerScale_Player_walk_2
+    21300006: PLayerScale_Player_walk_3
+    21300008: PLayerScale_Player_walk_4
+    21300010: PLayerScale_Player_walk_5
+    21300012: PLayerScale_Player_walk_6
+    21300014: PLayerScale_Player_walk_7
+    21300016: PLayerScale_Player_walk_8
+    21300018: PLayerScale_Player_walk_9
+    21300020: PLayerScale_Player_walk_10
+    21300022: PLayerScale_Player_walk_11
+    21300024: PLayerScale_Player_walk_12
+    21300026: PLayerScale_Player_walk_13
+    21300028: PLayerScale_Player_walk_14
+    21300030: PLayerScale_Player_walk_15
+    21300032: PLayerScale_Player_walk_16
+    21300034: PLayerScale_Player_walk_17
+    21300036: PLayerScale_Player_walk_18
+    21300038: PLayerScale_Player_walk_19
+    21300040: PLayerScale_Player_walk_20
+    21300042: PLayerScale_Player_walk_21
+    21300044: PLayerScale_Player_walk_22
+    21300046: PLayerScale_Player_walk_23
+    21300048: PLayerScale_Player_walk_24
+    21300050: PLayerScale_Player_walk_25
+    21300052: PLayerScale_Player_walk_26
+    21300054: PLayerScale_Player_walk_27
+    21300056: PLayerScale_Player_walk_28
+    21300058: PLayerScale_Player_walk_29
+    21300060: PLayerScale_Player_walk_30
+    21300062: PLayerScale_Player_walk_31
+    21300064: PLayerScale_Player_walk_32
+    21300066: PLayerScale_Player_walk_33
+    21300068: PLayerScale_Player_walk_34
+    21300070: PLayerScale_Player_walk_35
+    21300072: PLayerScale_Player_walk_36
+    21300074: PLayerScale_Player_walk_37
+    21300076: PLayerScale_Player_walk_38
+    21300078: PLayerScale_Player_walk_39
+    21300080: PLayerScale_Player_walk_40
+    21300082: PLayerScale_Player_walk_41
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PLayerScale_Player_walk_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 4987
+        width: 225
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42.153522, y: 105.90906}
+        - {x: -42.153522, y: -0.09094238}
+        - {x: 42.846478, y: -0.09094238}
+        - {x: 42.846478, y: 157.90906}
+        - {x: 41.846478, y: 169.90906}
+        - {x: 26.846478, y: 181.90906}
+        - {x: -20.153522, y: 181.90906}
+        - {x: -28.153522, y: 178.90906}
+    - name: PLayerScale_Player_walk_1
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 4987
+        width: 211
+        height: 483
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.45929, y: 181.72217}
+        - {x: -39.45929, y: 152.72217}
+        - {x: -39.45929, y: -0.27783203}
+        - {x: 40.54071, y: -0.27783203}
+        - {x: 40.54071, y: 181.72217}
+    - name: PLayerScale_Player_walk_2
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 4985
+        width: 208
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.999084, y: 182.16138}
+        - {x: -23.999084, y: 173.16138}
+        - {x: -38.999084, y: 60.161377}
+        - {x: -38.999084, y: 0.16137695}
+        - {x: 40.000916, y: 0.16137695}
+        - {x: 40.000916, y: 174.16138}
+        - {x: 22.000916, y: 182.16138}
+    - name: PLayerScale_Player_walk_3
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 4985
+        width: 206
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5388794, y: 182.16138}
+        - {x: -14.538879, y: 168.16138}
+        - {x: -38.53888, y: 34.161377}
+        - {x: -38.53888, y: 3.161377}
+        - {x: -32.53888, y: 0.16137695}
+        - {x: 39.46112, y: 0.16137695}
+        - {x: 39.46112, y: 175.16138}
+        - {x: 22.46112, y: 182.16138}
+    - name: PLayerScale_Player_walk_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 4484
+        width: 204
+        height: 485
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38.855606, y: 0.044921875}
+        - {x: 38.855606, y: 182.04492}
+        - {x: -9.144394, y: 182.04492}
+        - {x: -28.144394, y: 174.04492}
+        - {x: -38.144394, y: 58.04492}
+        - {x: -38.144394, y: 6.044922}
+        - {x: -37.144394, y: 5.044922}
+        - {x: -27.144394, y: 0.044921875}
+        - {x: -23.144394, y: 0.044921875}
+        - {x: -22.144394, y: 1.0449219}
+        - {x: -23.144394, y: 5.044922}
+        - {x: -3.144394, y: 32.04492}
+        - {x: 19.855606, y: 0.044921875}
+    - name: PLayerScale_Player_walk_5
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 4487
+        width: 204
+        height: 481
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1.1841888, y: 180.91882}
+        - {x: -14.184189, y: 165.91882}
+        - {x: -36.18419, y: 74.91882}
+        - {x: -38.18419, y: 40.918823}
+        - {x: -38.18419, y: -0.08117676}
+        - {x: 38.81581, y: -0.08117676}
+        - {x: 38.81581, y: 180.91882}
+    - name: PLayerScale_Player_walk_6
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 4487
+        width: 198
+        height: 479
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.102402, y: 180.04492}
+        - {x: -16.102402, y: 177.04492}
+        - {x: -37.1024, y: 51.04492}
+        - {x: -37.1024, y: 8.044922}
+        - {x: -32.1024, y: 0.044921875}
+        - {x: 37.8976, y: 0.044921875}
+        - {x: 37.8976, y: 180.04492}
+    - name: PLayerScale_Player_walk_7
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 4492
+        width: 195
+        height: 474
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.52063, y: 177.97961}
+        - {x: -36.52063, y: 46.979614}
+        - {x: -36.52063, y: -0.020385742}
+        - {x: 36.47937, y: -0.020385742}
+        - {x: 37.47937, y: 0.97961426}
+        - {x: 37.47937, y: 169.97961}
+        - {x: 24.47937, y: 177.97961}
+    - name: PLayerScale_Player_walk_8
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 3992
+        width: 185
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.635269, y: 178.92395}
+        - {x: -34.63527, y: 74.92395}
+        - {x: -34.63527, y: -0.076049805}
+        - {x: -25.63527, y: -0.076049805}
+        - {x: 5.364731, y: 22.92395}
+        - {x: 6.364731, y: 26.92395}
+        - {x: 13.364731, y: 1.9239502}
+        - {x: 14.364731, y: -0.076049805}
+        - {x: 35.36473, y: -0.076049805}
+        - {x: 35.36473, y: 174.92395}
+        - {x: 28.36473, y: 178.92395}
+    - name: PLayerScale_Player_walk_9
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 3989
+        width: 169
+        height: 482
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.693314, y: 180.92383}
+        - {x: -27.693314, y: 178.92383}
+        - {x: -31.693314, y: 135.92383}
+        - {x: -31.693314, y: 5.923828}
+        - {x: -27.693314, y: -0.076171875}
+        - {x: 32.306686, y: -0.076171875}
+        - {x: 32.306686, y: 176.92383}
+        - {x: 20.306686, y: 180.92383}
+    - name: PLayerScale_Player_walk_10
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 3989
+        width: 152
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.629791, y: 182.85852}
+        - {x: -28.629791, y: -0.14147949}
+        - {x: 28.370209, y: -0.14147949}
+        - {x: 29.370209, y: 9.8585205}
+        - {x: 29.370209, y: 182.85852}
+    - name: PLayerScale_Player_walk_11
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 3989
+        width: 139
+        height: 490
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.187836, y: 183.91931}
+        - {x: -26.187836, y: 15.919312}
+        - {x: -21.187836, y: 12.919312}
+        - {x: -18.187836, y: 13.919312}
+        - {x: -5.1878357, y: -0.08068848}
+        - {x: 23.812164, y: -0.08068848}
+        - {x: 26.812164, y: 12.919312}
+        - {x: 26.812164, y: 172.91931}
+        - {x: 20.812164, y: 183.91931}
+    - name: PLayerScale_Player_walk_12
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 3495
+        width: 152
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.580505, y: 184.04602}
+        - {x: -23.419495, y: 184.04602}
+        - {x: -28.419495, y: 175.04602}
+        - {x: -28.419495, y: 14.0460205}
+        - {x: -23.419495, y: 0.046020508}
+        - {x: 29.580505, y: 0.046020508}
+        - {x: 29.580505, y: 179.04602}
+        - {x: 26.580505, y: 182.04602}
+    - name: PLayerScale_Player_walk_13
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 3495
+        width: 163
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.45929, y: 184.04602}
+        - {x: -30.45929, y: 154.04602}
+        - {x: -30.45929, y: 40.04602}
+        - {x: -18.45929, y: 20.04602}
+        - {x: -13.45929, y: 15.0460205}
+        - {x: -10.45929, y: 16.04602}
+        - {x: -11.45929, y: 0.046020508}
+        - {x: 31.54071, y: 0.046020508}
+        - {x: 31.54071, y: 184.04602}
+    - name: PLayerScale_Player_walk_14
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 3492
+        width: 157
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.739502, y: 76.92444}
+        - {x: 15.739502, y: 72.92444}
+        - {x: 18.739502, y: 70.92444}
+        - {x: 22.739502, y: 68.92444}
+        - {x: 29.739502, y: 73.92444}
+        - {x: 29.739502, y: 179.92444}
+        - {x: 18.739502, y: 183.92444}
+        - {x: -27.260498, y: 183.92444}
+        - {x: -29.260498, y: 182.92444}
+        - {x: -29.260498, y: 31.924438}
+        - {x: -26.260498, y: -0.07556152}
+        - {x: 16.739502, y: -0.07556152}
+        - {x: 28.739502, y: 42.92444}
+        - {x: 16.739502, y: 71.92444}
+        - {x: 14.739502, y: 73.92444}
+    - name: PLayerScale_Player_walk_15
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 3489
+        width: 153
+        height: 490
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.687836, y: 183.98975}
+        - {x: -19.687836, y: 178.98975}
+        - {x: -28.687836, y: 103.989746}
+        - {x: -28.687836, y: 77.989746}
+        - {x: -23.687836, y: 73.989746}
+        - {x: -17.687836, y: -0.010253906}
+        - {x: 10.312164, y: -0.010253906}
+        - {x: 29.312164, y: 22.989746}
+        - {x: 29.312164, y: 176.98975}
+        - {x: 16.312164, y: 183.98975}
+    - name: PLayerScale_Player_walk_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 2992
+        width: 158
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.428623, y: 183.12097}
+        - {x: -29.428623, y: 180.12097}
+        - {x: -29.428623, y: 0.12097168}
+        - {x: 30.571377, y: 0.12097168}
+        - {x: 30.571377, y: 183.12097}
+    - name: PLayerScale_Player_walk_17
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 2989
+        width: 161
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.229828, y: 182.99951}
+        - {x: -24.229828, y: 168.99951}
+        - {x: -14.229828, y: 147.99951}
+        - {x: -12.229828, y: 145.99951}
+        - {x: -29.229828, y: 111.99951}
+        - {x: -30.229828, y: 105.99951}
+        - {x: -30.229828, y: 19.999512}
+        - {x: -29.229828, y: 7.9995117}
+        - {x: -27.229828, y: -0.00048828125}
+        - {x: 30.770172, y: -0.00048828125}
+        - {x: 30.770172, y: 180.99951}
+        - {x: 27.770172, y: 182.99951}
+    - name: PLayerScale_Player_walk_18
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 2989
+        width: 166
+        height: 482
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.278748, y: 13.064941}
+        - {x: -5.2787476, y: 25.064941}
+        - {x: -4.2787476, y: 9.064941}
+        - {x: -1.2787476, y: 6.0649414}
+        - {x: 15.721252, y: 2.0649414}
+        - {x: 16.721252, y: 6.0649414}
+        - {x: 13.721252, y: 9.064941}
+        - {x: 25.721252, y: 30.064941}
+        - {x: 31.721252, y: 48.06494}
+        - {x: 31.721252, y: 181.06494}
+        - {x: -29.278748, y: 181.06494}
+        - {x: -31.278748, y: 180.06494}
+        - {x: -31.278748, y: 0.064941406}
+        - {x: -12.278748, y: 0.064941406}
+        - {x: -10.278748, y: 2.0649414}
+        - {x: -11.278748, y: 5.0649414}
+        - {x: -17.278748, y: 7.0649414}
+    - name: PLayerScale_Player_walk_19
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 2989
+        width: 177
+        height: 479
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.8030396, y: 4.0041504}
+        - {x: 18.80304, y: 0.0041503906}
+        - {x: 33.80304, y: 0.0041503906}
+        - {x: 33.80304, y: 180.00415}
+        - {x: -12.19696, y: 180.00415}
+        - {x: -33.19696, y: 124.00415}
+        - {x: -33.19696, y: 0.0041503906}
+        - {x: -16.19696, y: 0.0041503906}
+        - {x: -13.19696, y: 2.0041504}
+        - {x: -6.1969604, y: 23.00415}
+        - {x: 1.8030396, y: 6.0041504}
+    - name: PLayerScale_Player_walk_20
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 2494
+        width: 196
+        height: 474
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.328224, y: 0.009155273}
+        - {x: 37.328224, y: 21.009155}
+        - {x: 37.328224, y: 42.009155}
+        - {x: 30.328224, y: 70.009155}
+        - {x: 37.328224, y: 129.00916}
+        - {x: 37.328224, y: 169.00916}
+        - {x: 30.328224, y: 175.00916}
+        - {x: 25.328224, y: 178.00916}
+        - {x: -6.671776, y: 178.00916}
+        - {x: -36.671776, y: 98.009155}
+        - {x: -36.671776, y: 0.009155273}
+        - {x: -15.671776, y: 0.009155273}
+        - {x: -14.671776, y: 1.0091553}
+        - {x: -4.671776, y: 24.009155}
+        - {x: 9.328224, y: 0.009155273}
+    - name: PLayerScale_Player_walk_21
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 2494
+        width: 209
+        height: 471
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.7884293, y: 176.94836}
+        - {x: -7.2115707, y: 173.94836}
+        - {x: -39.21157, y: 112.948364}
+        - {x: -39.21157, y: -0.051635742}
+        - {x: 39.78843, y: -0.051635742}
+        - {x: 39.78843, y: 176.94836}
+    - name: PLayerScale_Player_walk_22
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 2494
+        width: 222
+        height: 466
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.2486267, y: 175.01367}
+        - {x: -6.7513733, y: 162.01367}
+        - {x: -41.751373, y: 86.01367}
+        - {x: -41.751373, y: 1.0136719}
+        - {x: -39.751373, y: 0.013671875}
+        - {x: -22.751373, y: 0.013671875}
+        - {x: -20.751373, y: 2.0136719}
+        - {x: -12.751373, y: 0.013671875}
+        - {x: 42.248627, y: 0.013671875}
+        - {x: 42.248627, y: 175.01367}
+    - name: PLayerScale_Player_walk_23
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 2494
+        width: 217
+        height: 468
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18.800293, y: 175.88757}
+        - {x: -40.800293, y: 89.88757}
+        - {x: -40.800293, y: -0.11242676}
+        - {x: 41.199707, y: -0.11242676}
+        - {x: 41.199707, y: 167.88757}
+        - {x: 28.199707, y: 175.88757}
+    - name: PLayerScale_Player_walk_24
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1994
+        width: 201
+        height: 476
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.541073, y: 178.95343}
+        - {x: -37.541073, y: 32.95343}
+        - {x: -37.541073, y: 3.9534302}
+        - {x: -24.541073, y: -0.046569824}
+        - {x: -18.541073, y: -0.046569824}
+        - {x: -18.541073, y: 2.9534302}
+        - {x: -19.541073, y: 5.95343}
+        - {x: -4.541073, y: 23.95343}
+        - {x: 15.458927, y: 2.9534302}
+        - {x: 18.458927, y: -0.046569824}
+        - {x: 32.458927, y: -0.046569824}
+        - {x: 38.458927, y: 2.9534302}
+        - {x: 38.458927, y: 178.95343}
+    - name: PLayerScale_Player_walk_25
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1994
+        width: 182
+        height: 482
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.9684143, y: 181.07501}
+        - {x: -18.968414, y: 173.07501}
+        - {x: -33.968414, y: 71.07501}
+        - {x: -33.968414, y: 0.07501221}
+        - {x: -24.968414, y: 0.07501221}
+        - {x: -22.968414, y: 1.0750122}
+        - {x: -15.968414, y: 3.0750122}
+        - {x: -16.968414, y: 6.075012}
+        - {x: 2.0315857, y: 0.07501221}
+        - {x: 25.031586, y: 0.07501221}
+        - {x: 35.031586, y: 3.0750122}
+        - {x: 35.031586, y: 172.07501}
+        - {x: 29.031586, y: 181.07501}
+    - name: PLayerScale_Player_walk_26
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1997
+        width: 166
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.269623, y: 183.13123}
+        - {x: -31.269623, y: 178.13123}
+        - {x: -31.269623, y: 0.13122559}
+        - {x: -18.269623, y: 0.13122559}
+        - {x: -15.269623, y: 4.1312256}
+        - {x: -15.269623, y: 6.1312256}
+        - {x: 0.7303772, y: 0.13122559}
+        - {x: 30.730377, y: 0.13122559}
+        - {x: 31.730377, y: 7.1312256}
+        - {x: 31.730377, y: 182.13123}
+        - {x: 28.730377, y: 183.13123}
+    - name: PLayerScale_Player_walk_27
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 1999
+        width: 147
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.424622, y: 174.87897}
+        - {x: 21.424622, y: 182.87897}
+        - {x: -13.575378, y: 182.87897}
+        - {x: -23.575378, y: 167.87897}
+        - {x: -27.575378, y: 107.87897}
+        - {x: -27.575378, y: 8.878967}
+        - {x: -21.575378, y: -0.121032715}
+        - {x: 25.424622, y: -0.121032715}
+        - {x: 26.424622, y: 63.878967}
+        - {x: 25.424622, y: 80.87897}
+        - {x: 28.424622, y: 103.87897}
+    - name: PLayerScale_Player_walk_28
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1502
+        width: 145
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.180904, y: 183.94489}
+        - {x: -20.180904, y: 175.94489}
+        - {x: -16.180904, y: 147.94489}
+        - {x: -11.180904, y: 145.94489}
+        - {x: -8.180904, y: 145.94489}
+        - {x: -10.180904, y: 145.94489}
+        - {x: -15.180904, y: 140.94489}
+        - {x: -27.180904, y: 125.944885}
+        - {x: -27.180904, y: 12.944885}
+        - {x: -14.180904, y: 4.9448853}
+        - {x: -11.180904, y: 5.9448853}
+        - {x: -11.180904, y: 10.944885}
+        - {x: -1.1809044, y: 1.9448853}
+        - {x: 0.8190956, y: -0.055114746}
+        - {x: 27.819096, y: -0.055114746}
+        - {x: 27.819096, y: 183.94489}
+    - name: PLayerScale_Player_walk_29
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1502
+        width: 147
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28.522453, y: 63.944885}
+        - {x: 28.522453, y: 181.94489}
+        - {x: 21.522453, y: 183.94489}
+        - {x: -14.477547, y: 183.94489}
+        - {x: -21.477547, y: 167.94489}
+        - {x: -15.477547, y: 147.94489}
+        - {x: -10.477547, y: 145.94489}
+        - {x: -7.4775467, y: 145.94489}
+        - {x: -9.477547, y: 145.94489}
+        - {x: -14.477547, y: 140.94489}
+        - {x: -27.477547, y: 119.944885}
+        - {x: -27.477547, y: 19.944885}
+        - {x: -18.477547, y: -0.055114746}
+        - {x: 17.522453, y: -0.055114746}
+        - {x: 18.522453, y: 1.9448853}
+        - {x: 17.522453, y: 4.9448853}
+        - {x: 20.522453, y: 37.944885}
+    - name: PLayerScale_Player_walk_30
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1502
+        width: 153
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.648041, y: 183.94489}
+        - {x: -24.64804, y: 179.94489}
+        - {x: -28.64804, y: 153.94489}
+        - {x: -28.64804, y: 29.944885}
+        - {x: -16.64804, y: -0.055114746}
+        - {x: 29.35196, y: -0.055114746}
+        - {x: 29.35196, y: 183.94489}
+    - name: PLayerScale_Player_walk_31
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1502
+        width: 156
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23.681458, y: 42.944885}
+        - {x: 29.681458, y: 65.944885}
+        - {x: 29.681458, y: 176.94489}
+        - {x: 24.681458, y: 183.94489}
+        - {x: -10.3185425, y: 183.94489}
+        - {x: -21.318542, y: 179.94489}
+        - {x: -29.318542, y: 134.94489}
+        - {x: -29.318542, y: 14.944885}
+        - {x: -28.318542, y: 7.9448853}
+        - {x: -7.3185425, y: -0.055114746}
+        - {x: 14.6814575, y: -0.055114746}
+        - {x: 14.6814575, y: 0.94488525}
+        - {x: 13.6814575, y: 3.9448853}
+        - {x: 22.681458, y: 37.944885}
+    - name: PLayerScale_Player_walk_32
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1002
+        width: 156
+        height: 492
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29.819096, y: 185.07611}
+        - {x: -9.180904, y: 185.07611}
+        - {x: -17.180904, y: 178.07611}
+        - {x: -29.180904, y: 102.07611}
+        - {x: -29.180904, y: 53.07611}
+        - {x: -10.180904, y: 0.07611084}
+        - {x: 9.819096, y: 0.07611084}
+        - {x: 12.819096, y: 1.0761108}
+        - {x: 10.819096, y: 5.076111}
+        - {x: 21.819096, y: 25.07611}
+        - {x: 29.819096, y: 44.07611}
+    - name: PLayerScale_Player_walk_33
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 1002
+        width: 163
+        height: 492
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.400879, y: 185.07611}
+        - {x: -17.599121, y: 185.07611}
+        - {x: -30.599121, y: 139.07611}
+        - {x: -30.599121, y: 66.07611}
+        - {x: -11.599121, y: 0.07611084}
+        - {x: 24.400879, y: 0.07611084}
+        - {x: 31.400879, y: 24.07611}
+        - {x: 31.400879, y: 174.07611}
+        - {x: 22.400879, y: 184.07611}
+    - name: PLayerScale_Player_walk_34
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 1002
+        width: 163
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.35196, y: 0.015319824}
+        - {x: 31.35196, y: 20.01532}
+        - {x: 31.35196, y: 179.01532}
+        - {x: 23.35196, y: 184.01532}
+        - {x: -17.64804, y: 184.01532}
+        - {x: -30.64804, y: 139.01532}
+        - {x: -30.64804, y: 55.01532}
+        - {x: -16.64804, y: 0.015319824}
+        - {x: 2.3519592, y: 0.015319824}
+        - {x: 3.3519592, y: 1.0153198}
+        - {x: 2.3519592, y: 4.01532}
+        - {x: 7.351959, y: 0.015319824}
+    - name: PLayerScale_Player_walk_35
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1002
+        width: 166
+        height: 489
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31.318542, y: 184.01532}
+        - {x: -31.318542, y: 0.015319824}
+        - {x: 31.681458, y: 0.015319824}
+        - {x: 31.681458, y: 184.01532}
+    - name: PLayerScale_Player_walk_36
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 504
+        width: 171
+        height: 490
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.928623, y: 26.020447}
+        - {x: 2.0713768, y: 10.020447}
+        - {x: 13.071377, y: 0.020446777}
+        - {x: 31.071377, y: 0.020446777}
+        - {x: 33.071377, y: 5.020447}
+        - {x: 33.071377, y: 184.02045}
+        - {x: -7.928623, y: 184.02045}
+        - {x: -17.928623, y: 170.02045}
+        - {x: -31.928623, y: 102.02045}
+        - {x: -31.928623, y: 5.020447}
+        - {x: -30.928623, y: 0.020446777}
+        - {x: -6.928623, y: 0.020446777}
+        - {x: -6.928623, y: 1.0204468}
+        - {x: -7.928623, y: 4.020447}
+        - {x: -12.928623, y: 6.020447}
+    - name: PLayerScale_Player_walk_37
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 507
+        width: 174
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.599121, y: 183.08124}
+        - {x: -31.599121, y: 177.08124}
+        - {x: -32.59912, y: 167.08124}
+        - {x: -32.59912, y: 0.08123779}
+        - {x: 33.40088, y: 0.08123779}
+        - {x: 33.40088, y: 179.08124}
+        - {x: 30.400879, y: 183.08124}
+    - name: PLayerScale_Player_walk_38
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 507
+        width: 179
+        height: 487
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.517334, y: 183.08124}
+        - {x: -31.517334, y: 168.08124}
+        - {x: -33.517334, y: 141.08124}
+        - {x: -33.517334, y: 0.08123779}
+        - {x: 34.482666, y: 0.08123779}
+        - {x: 34.482666, y: 180.08124}
+        - {x: 24.482666, y: 183.08124}
+    - name: PLayerScale_Player_walk_39
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 507
+        width: 188
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35.690582, y: 182.02045}
+        - {x: -12.309418, y: 182.02045}
+        - {x: -35.309418, y: 138.02045}
+        - {x: -35.309418, y: 0.020446777}
+        - {x: -16.309418, y: 0.020446777}
+        - {x: -16.309418, y: 1.0204468}
+        - {x: -13.309418, y: 0.020446777}
+        - {x: 35.690582, y: 0.020446777}
+    - name: PLayerScale_Player_walk_40
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 9
+        width: 195
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.7112083, y: 181.83864}
+        - {x: -13.288792, y: 169.83864}
+        - {x: -35.28879, y: 111.83863}
+        - {x: -36.28879, y: 93.83863}
+        - {x: -36.28879, y: -0.16136837}
+        - {x: 19.711208, y: -0.16136837}
+        - {x: 37.71121, y: 4.8386316}
+        - {x: 37.71121, y: 175.83864}
+        - {x: 28.711208, y: 181.83864}
+    - name: PLayerScale_Player_walk_41
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 9
+        width: 209
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.919136, y: 181.83864}
+        - {x: -11.080864, y: 166.83864}
+        - {x: -39.080864, y: 105.83863}
+        - {x: -39.080864, y: -0.16136837}
+        - {x: 39.919136, y: -0.16136837}
+        - {x: 39.919136, y: 170.83864}
+        - {x: 21.919136, y: 181.83864}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

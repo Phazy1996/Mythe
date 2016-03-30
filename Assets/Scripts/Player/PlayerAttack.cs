@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerAttack : MonoBehaviour {
+public class PlayerAttack : MonoBehaviour
+{
 
     //components
     [SerializeField]
@@ -13,14 +14,23 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField]
     private PlayerFlip _playerFacingRight;
     private PlayerTransformation _WolfMode;
+    private IHealth _hunterHealth;
     //scripts
 
     //ints
     private int _layermask;
     //ints
 
+    //bools
+    private bool _aniIsDone = false;
+    public bool atackIsDone = true;
+    public bool dealingDamage = false;
+    //bools
     //floats 
-    private float _damageToDeal = -10f;
+    [SerializeField]
+    private float _damageToDeal;
+    private float _wolfDamage = 8f;
+    private float _humanDamage = 10f;
     //floats
 
     //gameobjects
@@ -30,7 +40,19 @@ public class PlayerAttack : MonoBehaviour {
     private Transform _atackPostionWolf;
     //gameobjects   
 
+   
+    //delegates
+    public delegate void EnemyDamageEventhandler(float damageDeal);
+    public EnemyDamageEventhandler damageEnemy;
+    //delegates
+
     void Start()
+    {
+        AsignVariables();
+
+    }
+
+    private void AsignVariables()
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerFacingRight = GetComponent<PlayerFlip>();
@@ -39,10 +61,12 @@ public class PlayerAttack : MonoBehaviour {
         _WolfMode = GetComponent<PlayerTransformation>();
         _atackPostionHuman = transform.FindChild("AtackPositionHuman");
         _atackPostionWolf = transform.FindChild("AtackPositionWolf");
+        CalculateAtackDamage();
     }
 
-    void FixedUpdate() {
-        //  Debug.DrawRay(this.transform.position,Vector2.right);
+  
+    void Update()
+    {
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -65,33 +89,84 @@ public class PlayerAttack : MonoBehaviour {
             return 1;
         }
     }
-       
 
-    void Strike() {
+
+    void Strike()
+    {
+        //this code is just for testing purposes and can be deleted when the player atack is finilazed
         if (_WolfMode.wolfMode == false)
         {
             Debug.DrawRay(_atackPostionHuman.position, new Vector2(2 * GetPlayerDirection(), 0));
 
-            DealDamage(_atackPostionHuman.position,_damageToDeal);
 
         }
         else
         {
-            float Wolfdamage = (_damageToDeal / 100) * 80; 
+            float Wolfdamage = (_damageToDeal / 100) * 80;
             Debug.DrawRay(_atackPostionWolf.position, new Vector2(2 * GetPlayerDirection(), 0));
-            DealDamage(_atackPostionWolf.position,(_damageToDeal /100)* 80);
-            
-        }
-       
-        
-    }
 
-    void DealDamage(Vector2 atackpostion, float damageToDeal) {
+        }
+        //test code ends here
+
+       StartCoroutine(Atack());
+
+    }
+    //to determine the atack damage
+    private float CalculateAtackDamage() {
+        if (_WolfMode.wolfMode == true)
+        {
+            return _wolfDamage;
+        }
+     if (_WolfMode.wolfMode == false)
+        {
+            return _humanDamage;
+        }
+        else
+        {
+            Debug.Log("no mode found, ERROR");
+            return 0f;
+        }
+    }
+    //needs refactoring
+    IEnumerator Atack()
+    {
+        atackIsDone = false;
+        HitCheck();
+
+
+        yield return new WaitForEndOfFrame();
+    }
+    //see if the player hit the enemy
+    private void HitCheck()
+    {
+
         RaycastHit2D enemyInRange = Physics2D.Raycast(this.transform.position, new Vector2((2 * GetPlayerDirection()), 0), 2, _layermask);
         if (enemyInRange.collider != null)
         {
-            //send message to gameobject with healthchange method, replace this with tag from Gametags.cs
-            enemyInRange.transform.SendMessage("HealthChange", _damageToDeal, SendMessageOptions.RequireReceiver);
+            _hunterHealth = enemyInRange.transform.gameObject.GetComponent<IHealth>();
+            StartCoroutine(Onhit(enemyInRange.collider.gameObject));
+        }
+        else
+        {
+            Debug.Log("no hittable objects");
         }
     }
+    //code to run when the enemy is damaged
+    private IEnumerator Onhit(GameObject other)
+    {
+
+        //add and eventually delete delegate here
+        damageEnemy += _hunterHealth.ChangeHealth;
+        damageEnemy(_damageToDeal);
+        damageEnemy -= _hunterHealth.ChangeHealth;
+        yield return new WaitForEndOfFrame();
+        //atackIsDone = true; 
+
+    }
+
+    
+
+
+    
+
 }

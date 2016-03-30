@@ -8,6 +8,7 @@ public class PlayerAnimations : MonoBehaviour
     //Scripts
     private PlayerTransformation _playerTransformation;
     private PlayerMovement _playerMovement;
+    private PlayerAttack _playerAtack;
     //Scripts
 
     //Animator
@@ -25,7 +26,7 @@ public class PlayerAnimations : MonoBehaviour
     {
         _playerTransformation = this.gameObject.GetComponent<PlayerTransformation>();
         _playerMovement = this.gameObject.GetComponent<PlayerMovement>();
-
+        _playerAtack = this.gameObject.GetComponent<PlayerAttack>();
 
         anim = this.gameObject.GetComponent<Animator>();
     }
@@ -159,13 +160,19 @@ public class PlayerAnimations : MonoBehaviour
     {
         if (_playerTransformation.wolfMode && Input.GetKeyDown(KeyCode.E))
         {
-            StartCoroutine(PlayAnimationComplete(0f));
+           // StartCoroutine(PlayAnimationComplete(0f));
             Debug.Log("wolf atack");
 
 
 
         }
     }
+    IEnumerator AtackAnimation() {
+
+        Debug.Log("couritine atack");
+        yield return null;
+    }
+    //TODO refactor this code to make sure the game doesn't crash on certain atacks
     IEnumerator PlayAnimationComplete(float secondsToWait)
     {
         AtackingAni = true;

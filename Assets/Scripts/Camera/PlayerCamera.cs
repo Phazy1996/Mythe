@@ -31,6 +31,7 @@ public class PlayerCamera : MonoBehaviour
 
     void Start()
     {
+        _cameraTarget = this.gameObject;
         _playerScript = _cameraTarget.GetComponent<PlayerMovement>();
         offset = new Vector3 (0F,.3F,0F);
         _cameraTargetPos = transform.position;
