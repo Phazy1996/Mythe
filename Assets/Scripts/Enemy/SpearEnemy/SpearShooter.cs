@@ -12,7 +12,19 @@ public class SpearShooter : MonoBehaviour {
 
     public void ThrowSpear(bool _FacingRight)
     {
+<<<<<<< HEAD
         if (_FacingRight == true)
+=======
+        Physics.IgnoreLayerCollision(9, 11, true);
+        _ShotCoolDown--;
+        if (_ShotCoolDown < 0)
+            _ShotCoolDown = 0;
+    }
+
+    public void ThrowSpearR()
+    {
+        if(_ShotCoolDown == 0)
+>>>>>>> parent of 13308d9... added health, tweaked hunter, added bossDeathState
         {
             ObjectPool.instance.GetObjectForType("SpearR", true);
         }

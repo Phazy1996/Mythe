@@ -40,24 +40,30 @@ public class Spear : MonoBehaviour {
 
         _LayerMask = LayerMask.GetMask("Player");
 
-        if(gameObject.tag == "SpearRight")
+        if(gameObject.tag == "SpearLeft")
         {
-            _MoveVector = new Vector2(10,0);
+            _MoveVector = new Vector2(-10,0);
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-            _GoingRight = true;
-        }else if(gameObject.tag == "SpearLeft")
-        {
-            _MoveVector = new Vector2(-10, 0);
             _GoingRight = false;
         }
     }
 
     void OnEnable()
     {
+<<<<<<< HEAD
         //determine what hunter the spear came from
         _OriginShooter = GameObject.FindWithTag("Hunter").transform.FindChild("Shooter");
         //set the spear position to that of the shooter
         transform.position = _OriginShooter.position;
+=======
+        //determine what shooter the spear came from
+        if (gameObject.tag == "SpearLeft")
+            _StartPoint = GameObject.FindWithTag("LShoot");
+        else
+            _StartPoint = GameObject.FindWithTag("RShoot");
+        //set spear position to that of the shooter
+        gameObject.transform.position = _StartPoint.transform.position;
+>>>>>>> parent of 13308d9... added health, tweaked hunter, added bossDeathState
     }
 
 	void Update () 
@@ -77,6 +83,7 @@ public class Spear : MonoBehaviour {
             _SpearColl.enabled = false;
         else
             _SpearColl.enabled = true;
+
 	}
 
     void OnCollisionEnter2D(Collision2D coll)
