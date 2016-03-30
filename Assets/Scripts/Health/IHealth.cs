@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface IHealth {
+public interface IHealth
+{
 
     void DecreaseHealth();
     void IncreaseHealth();

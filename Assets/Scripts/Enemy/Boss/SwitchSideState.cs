@@ -22,8 +22,12 @@ public class SwitchSideState : State {
     private Vector2 _RunLeftVector = new Vector2(-12, 0);
     private Vector2 _RunRightVector = new Vector2(12, 0);
 
+    private Animator _Anim;
+
     public override void Enter()
     {
+        _Anim = GetComponent<Animator>();
+        _Anim.SetInteger("State", 1);
         rb = GetComponent<Rigidbody2D>();
         _Camera = GameObject.FindWithTag("MainCamera");
         _ObstacleMask = LayerMask.GetMask("Ground");
@@ -37,23 +41,24 @@ public class SwitchSideState : State {
 
     public override void Act()
     {
-        //Debug.Log("it is ..." + _OnLeftSide + "... that boss is on left side");
-
-        //run left or right depending on stage position
-        if (_OnLeftSide)
-            transform.Translate(_RunRightVector * Time.deltaTime);
-        else
-            transform.Translate(_RunLeftVector *  Time.deltaTime);
-
-        //check when to stop running with raycast
-        if(_OnLeftSide == true)
-            ObstacleCheckRight();
-        else if(_OnLeftSide == false)
-            ObstacleCheckLeft();
+        
     }
 
     public override void Reason()
     {
+        //Debug.Log("it is ..." + _OnLeftSide + "... that boss is on left side");
+        //run left or right depending on stage position
+        if (_OnLeftSide)
+            transform.Translate(_RunRightVector * Time.deltaTime);
+        else
+            transform.Translate(_RunLeftVector * Time.deltaTime);
+
+        //check when to stop running with raycast
+        if (_OnLeftSide == true)
+            ObstacleCheckRight();
+        else if (_OnLeftSide == false)
+            ObstacleCheckLeft();
+
         //check if boss is on other side from where it started
         if (_PreviousSideLeft != _OnLeftSide)
             GetComponent<StateMachine>().SetState(StateID.Roar);

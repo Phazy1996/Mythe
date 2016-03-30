@@ -8,32 +8,18 @@ using System.Collections.Generic;
  * through the tag the spear can work out wich way it needs to go and face.
  */
 
-public class SpearShooter : MonoBehaviour {
-    private int _ShotCoolDown = 50;
+public class SpearShooter : MonoBehaviour
+{
 
-    void Update()
+    public void ThrowSpear(bool _FacingRight)
     {
-        //Physics.IgnoreLayerCollision(9, 11, true);
-        _ShotCoolDown--;
-        if (_ShotCoolDown < 0)
-            _ShotCoolDown = 0;
-    }
-
-    public void ThrowSpearR()
-    {
-        if(_ShotCoolDown == 0)
+        if (_FacingRight == true)
         {
             ObjectPool.instance.GetObjectForType("SpearR", true);
-            _ShotCoolDown = 100;
-        }     
-    }
-
-    public void ThrowSpearL()
-    {
-        if (_ShotCoolDown == 0)
+        }
+        else if (_FacingRight == false)
         {
             ObjectPool.instance.GetObjectForType("SpearL", true);
-            _ShotCoolDown = 100;
-        }     
+        }
     }
 }
