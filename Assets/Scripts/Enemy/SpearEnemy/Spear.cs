@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spear : MonoBehaviour {
+public class Spear : MonoBehaviour
+{
 
     private int _LayerMask;
 
@@ -9,7 +10,7 @@ public class Spear : MonoBehaviour {
     private float _YDirection;
 
     private Vector2 _MoveVector = new Vector2(10, 0);
-    private Vector2 _NullVector = new Vector2(0,0);
+    private Vector2 _NullVector = new Vector2(0, 0);
     private Vector2 _Scale;
     private Vector2 _RayOrigin;
     private Vector2 _StartPoint;
@@ -40,10 +41,15 @@ public class Spear : MonoBehaviour {
 
         _LayerMask = LayerMask.GetMask("Player");
 
-        if(gameObject.tag == "SpearLeft")
+        if (gameObject.tag == "SpearRight")
         {
-            _MoveVector = new Vector2(-10,0);
+            _MoveVector = new Vector2(10, 0);
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            _GoingRight = true;
+        }
+        else if (gameObject.tag == "SpearLeft")
+        {
+            _MoveVector = new Vector2(-10, 0);
             _GoingRight = false;
         }
     }
@@ -51,10 +57,14 @@ public class Spear : MonoBehaviour {
     void OnEnable()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> jochembranch
         //determine what hunter the spear came from
         _OriginShooter = GameObject.FindWithTag("Hunter").transform.FindChild("Shooter");
         //set the spear position to that of the shooter
         transform.position = _OriginShooter.position;
+<<<<<<< HEAD
 =======
         //determine what shooter the spear came from
         if (gameObject.tag == "SpearLeft")
@@ -64,27 +74,28 @@ public class Spear : MonoBehaviour {
         //set spear position to that of the shooter
         gameObject.transform.position = _StartPoint.transform.position;
 >>>>>>> parent of 13308d9... added health, tweaked hunter, added bossDeathState
+=======
+>>>>>>> jochembranch
     }
 
-	void Update () 
+    void Update()
     {
         transform.Translate(_MoveVector * Time.deltaTime);
         _RayOrigin = new Vector2((transform.position.x - 0.75f), transform.position.y);
 
-        if(_GoingRight)
+        if (_GoingRight)
             _RayOrigin = new Vector2((transform.position.x - 0.75f), transform.position.y);
         else
             _RayOrigin = new Vector2((transform.position.x + 0.75f), transform.position.y);
 
-        if(_InWall)
+        if (_InWall)
             CheckProximity();
 
-        if(_PlayerBelow)
+        if (_PlayerBelow)
             _SpearColl.enabled = false;
         else
             _SpearColl.enabled = true;
-
-	}
+    }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -111,7 +122,7 @@ public class Spear : MonoBehaviour {
         _ProxPlayerRay = new Ray(transform.position, new Vector2(_XDirection, _YDirection));
         _SpearCollControl = Physics2D.Raycast(_ProxPlayerRay.origin, _ProxPlayerRay.direction, 1, _LayerMask);
 
-        if(_SpearCollControl.collider.tag == GameTags.player && (_playerRb.position.y) <= transform.position.y)
+        if (_SpearCollControl.collider.tag == GameTags.player && (_playerRb.position.y) <= transform.position.y)
         {
             _PlayerBelow = true;
         }

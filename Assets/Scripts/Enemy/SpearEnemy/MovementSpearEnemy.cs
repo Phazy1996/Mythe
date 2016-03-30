@@ -8,7 +8,12 @@ using System.Collections;
  */
 
 
+<<<<<<< HEAD
 public class MovementSpearEnemy : MonoBehaviour {
+=======
+public class MovementSpearEnemy : MonoBehaviour
+{
+>>>>>>> jochembranch
 
     private Rigidbody2D _rb;
     private SpearShooter _SpearThrow;
@@ -41,7 +46,11 @@ public class MovementSpearEnemy : MonoBehaviour {
 
     private float _JumpProximity = 3f;
 
+<<<<<<< HEAD
 	void Start () 
+=======
+    void Start()
+>>>>>>> jochembranch
     {
         _rb = GetComponent<Rigidbody2D>();
         _Player = GameObject.FindWithTag(GameTags.player);
@@ -62,7 +71,11 @@ public class MovementSpearEnemy : MonoBehaviour {
         _HHealth = GetComponent<HunterHealth>();
         //sign up for deplete health delegate
         _HHealth.DepleteHealth += Die;
+<<<<<<< HEAD
 	}
+=======
+    }
+>>>>>>> jochembranch
 
     void OnEnable()
     {
@@ -78,22 +91,38 @@ public class MovementSpearEnemy : MonoBehaviour {
 
         //ObjectPool.instance.PoolObject(gameObject);
     }
+<<<<<<< HEAD
 	
 	void Update () 
     {
         if(_PlayerSighted == false)
+=======
+
+    void Update()
+    {
+        if (_PlayerSighted == false)
+>>>>>>> jochembranch
             Patrol();
         //ProximityCheck();
         ResetJump();
         IgnoreCollision();
         ResetShotCooldown();
+<<<<<<< HEAD
 	}
+=======
+    }
+>>>>>>> jochembranch
 
     void ResetShotCooldown()
     {
         Debug.Log("Decrease shot cooldown");
         _ShotCoolDown--;
+<<<<<<< HEAD
         if(_ShotCoolDown < 0){
+=======
+        if (_ShotCoolDown < 0)
+        {
+>>>>>>> jochembranch
             _ShotCoolDown = 0;
         }
     }
@@ -110,7 +139,12 @@ public class MovementSpearEnemy : MonoBehaviour {
 
     void Jump()
     {
+<<<<<<< HEAD
         if(_JumpCooldown == 0)
+=======
+        Debug.Log("I want to jump");
+        if (_JumpCooldown == 0)
+>>>>>>> jochembranch
         {
             _Animator.SetInteger("State", 2);
             _rb.AddForce(_JumpForce);
@@ -120,19 +154,36 @@ public class MovementSpearEnemy : MonoBehaviour {
 
     void Patrol()
     {
+<<<<<<< HEAD
         if (_FacingRight == true){ //walk right
             _Animator.SetInteger("State", 1);
             transform.Translate(_MoveForce * Time.deltaTime);
         }
         else if (_FacingRight == false){ // walk left
+=======
+        if (_FacingRight == true)
+        { //walk right
+            _Animator.SetInteger("State", 1);
+            transform.Translate(_MoveForce * Time.deltaTime);
+        }
+        else if (_FacingRight == false)
+        { // walk left
+>>>>>>> jochembranch
             _Animator.SetFloat("State", 1);
             transform.Translate(-_MoveForce * Time.deltaTime);
         }
     }
+<<<<<<< HEAD
     
     public void PlayerDetected(bool _PlayerIsDetected)
     {
         if(_PlayerIsDetected == true)
+=======
+
+    public void PlayerDetected(bool _PlayerIsDetected)
+    {
+        if (_PlayerIsDetected == true)
+>>>>>>> jochembranch
         {
             //hunter should also check for obstacles in front and jump over
             _PlayerSighted = true;
@@ -150,18 +201,31 @@ public class MovementSpearEnemy : MonoBehaviour {
         //in wich case enemy should turn around
 
         //cast a raycast in front of enemy.
+<<<<<<< HEAD
         if(_FacingRight)
+=======
+        if (_FacingRight)
+>>>>>>> jochembranch
             _LineOfFire = Physics2D.Raycast(transform.position, Vector2.right, _JumpProximity, _ObstacleMask);
         else
             _LineOfFire = Physics2D.Raycast(transform.position, Vector2.left, _JumpProximity, _ObstacleMask);
 
         if (_PlayerSighted == true)
         {
+<<<<<<< HEAD
             if(_LineOfFire.collider.tag == GameTags.ground || _LineOfFire.collider.tag == "NormalWall")
             {
                 Jump();
             }
         }else
+=======
+            if (_LineOfFire.collider.tag == GameTags.ground || _LineOfFire.collider.tag == "NormalWall")
+            {
+                Jump();
+            }
+        }
+        else
+>>>>>>> jochembranch
         {
             //check proximity normaly
             //check if obstacle is too close on the right
@@ -188,7 +252,10 @@ public class MovementSpearEnemy : MonoBehaviour {
 
     void PlayerTargeter()
     {
+<<<<<<< HEAD
         Debug.Log(_ShotCoolDown);
+=======
+>>>>>>> jochembranch
 
         //if the hunter cant target the wolf player, lower the hight of the _PlayerReticle
         if (_FacingRight)
@@ -196,7 +263,11 @@ public class MovementSpearEnemy : MonoBehaviour {
         else
             _PlayerReticle = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 2), Vector2.left, Mathf.Infinity, _DoubleMask);
 
+<<<<<<< HEAD
         if(_PlayerReticle.collider.tag == GameTags.player)
+=======
+        if (_PlayerReticle.collider.tag == GameTags.player)
+>>>>>>> jochembranch
         {
             //disable jumping when player can be shot 
             _JumpCooldown = 5;
@@ -204,13 +275,21 @@ public class MovementSpearEnemy : MonoBehaviour {
             if (_FacingRight == true)
             {
                 //start the throw spear animation
+<<<<<<< HEAD
                 if(_ShotCoolDown <= 0)
+=======
+                if (_ShotCoolDown <= 0)
+>>>>>>> jochembranch
                 {
                     Debug.Log("Throw spear");
                     _Animator.SetInteger("State", 4);
                     _ShotCoolDown = 200;
                 }
+<<<<<<< HEAD
                 else if(_ShotCoolDown != 0)
+=======
+                else if (_ShotCoolDown > 0)
+>>>>>>> jochembranch
                 {
                     //_Animator.SetInteger("State", 0);
                 }
@@ -218,18 +297,31 @@ public class MovementSpearEnemy : MonoBehaviour {
             else
             {
                 //Start the throw spear animation
+<<<<<<< HEAD
                 if(_ShotCoolDown <= 0)
+=======
+                if (_ShotCoolDown <= 0)
+>>>>>>> jochembranch
                 {
                     Debug.Log("Throw spear");
                     _Animator.SetInteger("State", 4);
                     _ShotCoolDown = 200;
+<<<<<<< HEAD
                 }else if(_ShotCoolDown != 0)
+=======
+                }
+                else if (_ShotCoolDown != 0)
+>>>>>>> jochembranch
                 {
                     //_Animator.SetInteger("State", 0);
                 }
             }
         }
+<<<<<<< HEAD
         else if(_PlayerReticle.collider.tag != GameTags.player)
+=======
+        else if (_PlayerReticle.collider.tag != GameTags.player)
+>>>>>>> jochembranch
         {
             Patrol();
         }
@@ -251,20 +343,36 @@ public class MovementSpearEnemy : MonoBehaviour {
             {
                 //looking wrong way, fix it
                 TurnAround();
+<<<<<<< HEAD
             }else
+=======
+            }
+            else
+>>>>>>> jochembranch
             {
                 //enemy looks in player direction, check if player is above enemy
                 //if player is below enemy, enemy will simply walk towards player
                 CheckAbove();
                 PlayerTargeter();
             }
+<<<<<<< HEAD
         }else{
+=======
+        }
+        else
+        {
+>>>>>>> jochembranch
             //player is on the left
             if (_FacingRight == true)
             {
                 //looking wrong way, fix it
                 TurnAround();
+<<<<<<< HEAD
             }else
+=======
+            }
+            else
+>>>>>>> jochembranch
             {
                 //enemy looks in player direction, check if player is above enemy
                 //if player is below enemy, enemy will simply walk towards player
@@ -281,7 +389,12 @@ public class MovementSpearEnemy : MonoBehaviour {
             //player is above enemy, enemy should jump
             Jump();
         }
+<<<<<<< HEAD
         else{
+=======
+        else
+        {
+>>>>>>> jochembranch
             ProximityCheck();
         }
     }
@@ -299,12 +412,23 @@ public class MovementSpearEnemy : MonoBehaviour {
     void ResetJump()
     {
         _JumpCast = Physics2D.Raycast(transform.position, -transform.up, Mathf.Infinity, _ObstacleMask);
+<<<<<<< HEAD
         if(_JumpCast.distance >= 0 && _JumpCast.distance < 0.05)
         {
             _Animator.SetInteger("State", 1);
             //_CanJump = true;
             _JumpCooldown--;
             if(_JumpCooldown < 0)
+=======
+        Debug.Log(_JumpCast.distance);
+        if (_JumpCast.distance >= 0 && _JumpCast.distance < 0.06)
+        {
+            Debug.Log("Reset Jump");
+            _Animator.SetInteger("State", 1);
+            //_CanJump = true;
+            _JumpCooldown--;
+            if (_JumpCooldown < 0)
+>>>>>>> jochembranch
             {
                 _JumpCooldown = 0;
             }
@@ -315,7 +439,11 @@ public class MovementSpearEnemy : MonoBehaviour {
     {
         //flip the sprite horizontally when walking left
         if (_FacingRight == true)
+<<<<<<< HEAD
             transform.localScale = _OriginScale;  
+=======
+            transform.localScale = _OriginScale;
+>>>>>>> jochembranch
         else if (_FacingRight == false)
             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
     }

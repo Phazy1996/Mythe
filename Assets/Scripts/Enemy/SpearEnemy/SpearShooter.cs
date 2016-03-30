@@ -8,6 +8,7 @@ using System.Collections.Generic;
  * through the tag the spear can work out wich way it needs to go and face.
  */
 
+<<<<<<< HEAD
 public class SpearShooter : MonoBehaviour {
 
     public void ThrowSpear(bool _FacingRight)
@@ -25,6 +26,14 @@ public class SpearShooter : MonoBehaviour {
     {
         if(_ShotCoolDown == 0)
 >>>>>>> parent of 13308d9... added health, tweaked hunter, added bossDeathState
+=======
+public class SpearShooter : MonoBehaviour
+{
+
+    public void ThrowSpear(bool _FacingRight)
+    {
+        if (_FacingRight == true)
+>>>>>>> jochembranch
         {
             ObjectPool.instance.GetObjectForType("SpearR", true);
         }
