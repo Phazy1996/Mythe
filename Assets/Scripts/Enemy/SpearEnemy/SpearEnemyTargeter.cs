@@ -36,7 +36,6 @@ public class SpearEnemyTargeter : MonoBehaviour {
         if(withinSight.collider.tag == GameTags.player)
         {
             //player is within sight, jump if needed to take aim
-            //_SEnemyMovement.Attack();
             _MSpearEnemy.Attack();
         }
         else

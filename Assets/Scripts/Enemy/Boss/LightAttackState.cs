@@ -15,16 +15,23 @@ public class LightAttackState : State {
     private Vector2 _StartPoint;
     private Vector2 _DestPoint;
 
+    private Vector2 _OriginScale;
+
     private bool _OnLeftSide;
     private bool _DoneAttacking = false;
 
     private GameObject _Camera;
 
-    private SpriteRenderer _BossRenderer;
+    private Animator _Anim;
+
+    void Start()
+    {
+        _OriginScale = transform.localScale;
+    }
 
     public override void Enter()
     {
-        _BossRenderer = GetComponent<SpriteRenderer>();
+        _Anim = GetComponent<Animator>();
         _Camera = GameObject.FindWithTag("MainCamera");
         CheckSide();
 
@@ -36,10 +43,12 @@ public class LightAttackState : State {
         else
             _DestPoint.x = _StartPoint.x - 3;
 
+        FlipSprite();
+
         //Debug.Log("Destination: " + _DestPoint + ". StartPoint: " + _StartPoint);
 
         //Debug.Log("Reset Start & Dest Point");
-        _BossRenderer.color = Color.green;
+        //_BossRenderer.color = Color.green;
     }
 
     public override void Act()
@@ -58,6 +67,7 @@ public class LightAttackState : State {
 
     void WalkToCenter()
     {
+        _Anim.SetInteger("State", 2);
         //make boss walk to the destination point
         if(_OnLeftSide == true && transform.position.x < _DestPoint.x)
         {
@@ -79,6 +89,8 @@ public class LightAttackState : State {
 
     void WalkBack()
     {
+
+        _Anim.SetInteger("State", 4);
         //Debug.Log("Now Walking Back");
         //make boss move back to the start point
         if(transform.position.x >= _StartPoint.x)
@@ -135,8 +147,28 @@ public class LightAttackState : State {
     void Attack()
     {
         //make boss attack and then call walkback
-        _BossRenderer.color = Color.black;
-        _DoneAttacking = true;
+        //_BossRenderer.color = Color.black;
+        _Anim.SetInteger("State", 3);
+
         //play attack animation, when thats over, call walkback
     } 
+
+    void AttackOver()
+    {
+        _DoneAttacking = true;
+    }
+
+    void FlipSprite()
+    {
+        if(_OnLeftSide == true)
+        {
+            //you gotta face right, boss originally faced left
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        }
+        else
+        {
+            //you gotta face left, boss originally faced left
+            transform.localScale = _OriginScale;
+        }
+    }
 }

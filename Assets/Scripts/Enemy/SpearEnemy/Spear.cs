@@ -12,6 +12,7 @@ public class Spear : MonoBehaviour {
     private Vector2 _NullVector = new Vector2(0,0);
     private Vector2 _Scale;
     private Vector2 _RayOrigin;
+    private Vector2 _StartPoint;
 
     private bool _GoingRight = true;
     private bool _PlayerBelow = false;
@@ -26,12 +27,9 @@ public class Spear : MonoBehaviour {
     private Rigidbody2D _playerRb;
 
     private GameObject _Player;
-    private GameObject _Origin;
-    private GameObject _StartPoint;
-        void OnDrawGizmosSelected() {
-        Gizmos.color = new Color(1, 0, 0, 0.5F);
-        Gizmos.DrawCube(transform.position, new Vector3(1, 1, 1));
-    }
+
+    private Transform _OriginShooter;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,14 +51,13 @@ public class Spear : MonoBehaviour {
             _GoingRight = false;
         }
     }
-    
 
     void OnEnable()
     {
-        //determine what shooter the spear came from
-        _StartPoint = GameObject.FindWithTag("RShoot");
-        //set spear position to that of the shooter
-        gameObject.transform.position = _StartPoint.transform.position;
+        //determine what hunter the spear came from
+        _OriginShooter = GameObject.FindWithTag("Hunter").transform.FindChild("Shooter");
+        //set the spear position to that of the shooter
+        transform.position = _OriginShooter.position;
     }
 
 	void Update () 
@@ -89,12 +86,13 @@ public class Spear : MonoBehaviour {
         {
             ObjectPool.instance.PoolObject(gameObject);
         } //check if spear is stuck in wall
-        else if (coll.gameObject.tag == GameTags.ground)
+        else if (coll.gameObject.tag == GameTags.ground || coll.gameObject.tag == "NormalWall")
         {
             _MoveVector = _NullVector;
             _InWall = true;
             //turn on all constraints for rigidboy upon hitting wall, prevent from moving/rotating
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            StartCoroutine(DestroyAfterTime());
         }
     }
 
@@ -115,5 +113,11 @@ public class Spear : MonoBehaviour {
             _PlayerBelow = false;
             _SpearColl.enabled = true;
         }
+    }
+
+    IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(5f);
+        ObjectPool.instance.PoolObject(gameObject);
     }
 }

@@ -27,11 +27,6 @@ public class HunterHealth : MonoBehaviour, IHealth {
         }
     }
 
-    void Update()
-    {
-        Debug.Log(DepleteHealth);
-    }
-
     public void IncreaseHealth()
     {
     }

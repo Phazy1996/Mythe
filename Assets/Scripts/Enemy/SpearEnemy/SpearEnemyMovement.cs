@@ -176,10 +176,7 @@ public class SpearEnemyMovement : MonoBehaviour {
         //throw spear
         if (_LineOfFire.collider.tag == GameTags.player)
         {
-            if (_FacingRight)
-                _SpearThrowR.ThrowSpearR();
-            else
-                _SpearThrowL.ThrowSpearL();
+            
         }
     }
 

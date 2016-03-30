@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r7">
+    <folder id="0">
+        <file id="0" name="MB_back body.png" width="1011" height="818" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="MB_x front arm 1.png" width="528" height="183" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="MB_x front arm 2.png" width="334" height="278" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="MB_x front arm 3.png" width="321" height="368" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="MB_x back leg 1.png" width="326" height="212" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="MB_x back leg 2.png" width="322" height="263" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="MB_x back leg 3.png" width="314" height="348" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="Bear Mini boss">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="0" z_index="5"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="MB_x front arm 3">
+                <key id="0" spin="0">
+                    <object folder="0" file="3" x="-383.72093" y="718.604651"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="MB_x front arm 2">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" x="-448.837209" y="474.418605"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="MB_x front arm 1">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-802.325581" y="374.418605"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="MB_x back leg 1">
+                <key id="0" spin="0">
+                    <object folder="0" file="4" x="812.121212" y="336.363636"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="MB_x back leg 2">
+                <key id="0" spin="0">
+                    <object folder="0" file="5" x="781.818182" y="506.060606"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="MB_x back leg 3">
+                <key id="0" spin="0">
+                    <object folder="0" file="6" x="781.818182" y="742.424242"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
