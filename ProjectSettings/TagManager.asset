@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FrontUI
+    uniqueID: 1302135143
+    locked: 0

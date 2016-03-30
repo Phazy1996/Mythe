@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,18 +10,26 @@ public class PauseMenu : MonoBehaviour
     private bool isOnSettings = false;
 
     //Canvas
-    public GameObject pauseMenuCanvas;
+    [SerializeField]
+    private GameObject pauseMenuCanvas;
 
     //Text
-    public GameObject settingsTitle;
-    public GameObject settingsText;
-    public GameObject pauseTitle;
+    [SerializeField]
+    private GameObject settingsTitle;
+    [SerializeField]
+    private GameObject settingsText;
+    [SerializeField]
+    private GameObject pauseTitle;
 
     //Buttons
-    public GameObject resumeButton;
-    public GameObject settingsButton;
-    public GameObject backToMainMenuButton;
-    public GameObject backToResumeMenuButton;
+    [SerializeField]
+    private GameObject resumeButton;
+    [SerializeField]
+    private GameObject settingsButton;
+    [SerializeField]
+    private GameObject backToMainMenuButton;
+    [SerializeField]
+    private GameObject backToResumeMenuButton;
     
         
     public void Start()
@@ -68,7 +77,7 @@ public class PauseMenu : MonoBehaviour
     }
     
     //What the settings screen has to display.
-    void Settings()
+    public void Settings()
     {
         isOnSettings = true;
         isPaused = false;
@@ -87,18 +96,18 @@ public class PauseMenu : MonoBehaviour
     }
 
     //Send other screens back to the pause menu.
-    void BackToResumeMenu()
+    public void BackToResumeMenu()
     {
         isOnSettings = false;
         isPaused = true;
     }
 
-    void BackToMainMenu()
+    public void BackToMainMenu()
     {
-        Application.LoadLevel("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
-    void Resume()
+    public void Resume()
     {
         isPaused = false;
         isOnSettings = false;

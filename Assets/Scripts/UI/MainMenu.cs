@@ -1,24 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
     //UI Buttons Main Menu
-    public GameObject howToPlayButton;
-    public GameObject settingsButton;
-    public GameObject playButton;
-    public GameObject quitButton;
-    public GameObject backButton;
-    public GameObject creditsButton;
+    [SerializeField]
+    private GameObject howToPlayButton;
+    [SerializeField]
+    private GameObject settingsButton;
+    [SerializeField]
+    private GameObject playButton;
+    [SerializeField]
+    private GameObject quitButton;
+    [SerializeField]
+    private GameObject backButton;
+    [SerializeField]
+    private GameObject creditsButton;
+
+    //UI Slider
+    [SerializeField]
+    private GameObject sfxSlider;
+    [SerializeField]
+    private GameObject musicSlider;
 
     //UI Text
-    public GameObject gameTitle;
-    public GameObject howToPlayText;
-    public GameObject howToPlayTitle;
-    public GameObject settingsText;
-    public GameObject settingsTitle;
-    public GameObject creditsTitle;
-    public GameObject creditsText;
+    [SerializeField]
+    private GameObject gameTitle;
+    [SerializeField]
+    private GameObject howToPlayText;
+    [SerializeField]
+    private GameObject howToPlayTitle;
+    [SerializeField]
+    private GameObject settingsMusic;
+    [SerializeField]
+    private GameObject settingsSFX;
+    [SerializeField]
+    private GameObject settingsTitle;
+    [SerializeField]
+    private GameObject creditsTitle;
+    [SerializeField]
+    private GameObject creditsText;
+
 
 void Start()
     {
@@ -26,14 +49,17 @@ void Start()
         howToPlayTitle.SetActive(false);
         howToPlayText.SetActive(false);
         settingsTitle.SetActive(false);
-        settingsText.SetActive(false);
+        settingsSFX.SetActive(false);
+        settingsMusic.SetActive(false);
+        musicSlider.SetActive(false);
+        sfxSlider.SetActive(false);
         creditsText.SetActive(false);
         creditsTitle.SetActive(false);
     }
 
     public void PlayGame()
     {
-        Application.LoadLevel("FerryScene");
+        SceneManager.LoadScene("FerryScene");
     }
 
     public void HowToPlayButton()
@@ -61,7 +87,10 @@ void Start()
         creditsButton.SetActive(false);
         gameTitle.SetActive(false);
         howToPlayText.SetActive(false);
-        settingsText.SetActive(true);
+        settingsSFX.SetActive(true);
+        settingsMusic.SetActive(true);
+        musicSlider.SetActive(true);
+        sfxSlider.SetActive(true);
         settingsTitle.SetActive(true);
         creditsText.SetActive(false);
         creditsTitle.SetActive(false);
@@ -77,7 +106,10 @@ void Start()
         creditsButton.SetActive(false);
         gameTitle.SetActive(false);
         howToPlayText.SetActive(false);
-        settingsText.SetActive(false);
+        settingsSFX.SetActive(false);
+        settingsMusic.SetActive(false);
+        musicSlider.SetActive(false);
+        sfxSlider.SetActive(false);
         settingsTitle.SetActive(false);
         creditsText.SetActive(true);
         creditsTitle.SetActive(true);
@@ -93,7 +125,10 @@ void Start()
         creditsButton.SetActive(true);
         gameTitle.SetActive(true);
         howToPlayText.SetActive(false);
-        settingsText.SetActive(false);
+        settingsSFX.SetActive(false);
+        settingsMusic.SetActive(false);
+        musicSlider.SetActive(false);
+        sfxSlider.SetActive(false);
         howToPlayTitle.SetActive(false);
         settingsTitle.SetActive(false);
         creditsText.SetActive(false);
