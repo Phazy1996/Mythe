@@ -4,6 +4,7 @@
 #### With 4 developers and 5 artists on board, 
 #### we were all determined to deliver a game that truly feels, and looks like one. 
 
+
 [StateMachine](https://github.com/FerryElbaghdadi/Mythe/blob/master/Assets/Scripts/Enemy/Boss/StateMachine.cs)
 
 [PlayerCamera](https://github.com/FerryElbaghdadi/Mythe/blob/master/Assets/Scripts/Camera/PlayerCamera.cs)
@@ -15,7 +16,7 @@
 
 [EnemyMovement](https://github.com/FerryElbaghdadi/Mythe/blob/master/Assets/Scripts/Enemy/EnemyMovement.cs)
 
-[GameTags](https://github.com/FerryElbaghdadi/Mythe/blob/master/Assets/Scripts/Tags/GameTags.cs
+[GameTags](https://github.com/FerryElbaghdadi/Mythe/blob/master/Assets/Scripts/Tags/GameTags.cs)
 
 [ControllerInputs](https://github.com/FerryElbaghdadi/Mythe/blob/master/Assets/Scripts/Inputs/ControllerInputs.cs)
 
